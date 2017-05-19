@@ -1,50 +1,57 @@
 #include "stdafx.h"
 #include "InputHandler.h"
-#include <iostream>
 
 InputHandler::InputHandler(void)
 {
-	myGoCommand = new GoCommand;
-	myInvestigateCommand = new InvestigateCommand;
-	myLookCommand = new LookCommand;
-	myTakeCommand = new TakeCommand;
-}
 
+}
 
 InputHandler::~InputHandler(void)
 {
-	delete myGoCommand;
-	delete myInvestigateCommand;
-	delete myLookCommand;
-	delete myTakeCommand;
 }
 
-void InputHandler::HandleInput(const std::string& aUserInput)
+Command* InputHandler::HandleInput(const std::string& aUserInput)
 {
 	std::string firstWord;
 	std::string lastWord;
 	Action action;
+	Direction direction;
 
-	GetFirstTwoWordsFromString(aUserInput, firstWord, lastWord);
-	ConvertStringToAction(firstWord, action);
+	GetFirstTwoWordsFromString(aUserInput, firstWord, lastWord);	
 
-	switch (action)
+	if (!ConvertStringToAction(firstWord, action))
 	{
-		case GO:
-			myGoCommand->Execute();
-			break;
-		case TAKE:
-			myTakeCommand->Execute();
-			break;
-		case LOOK:
-			myLookCommand->Execute();
-			break;
-		case INVESTIGATE:
-			myInvestigateCommand->Execute();
-			break;
-		default:
-			throw "Action command not recognised";
+		ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_COMMAND_STRING);
+		return NULL;
 	}
+	else
+	{
+		switch (action)
+		{
+		case GO:
+			if (!ConvertStringToDirection(lastWord, direction))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
+				return NULL;
+			}
+
+			return new GoCommand(direction);
+		case TAKE:
+			if (!ConvertStringToDirection(lastWord, direction))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
+				return NULL;
+			}
+
+			return new TakeCommand(direction);
+		case LOOK:
+			return new LookCommand;
+		case INVESTIGATE:
+			return new InvestigateCommand;
+		default:
+			throw "Invalid action command generated";
+		}
+	}	
 }
 
 void InputHandler::GetFirstTwoWordsFromString(const std::string& anInputString, std::string& aFirstWord, std::string& aSecondWord)
@@ -76,6 +83,35 @@ bool InputHandler::ConvertStringToAction(const std::string& anInputString, Actio
 	if (CompareStringOrFirstLetter(anInputString, "INVESTIGATE"))
 	{
 		anAction = Action::INVESTIGATE;
+		return true;
+	}
+
+	return false;
+}
+
+bool InputHandler::ConvertStringToDirection(const std::string& anInputString, Direction& aDirection)
+{
+	if (CompareStringOrFirstLetter(anInputString, "NORTH"))
+	{
+		aDirection = Direction::NORTH;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "EAST"))
+	{
+		aDirection = Direction::EAST;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "SOUTH"))
+	{
+		aDirection = Direction::SOUTH;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "WEST"))
+	{
+		aDirection = Direction::WEST;
 		return true;
 	}
 

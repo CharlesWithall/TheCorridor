@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\InputHandling">
+      <UniqueIdentifier>{8e8e507a-87a0-4bf6-b807-fccbe448eeac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\InputHandling">
+      <UniqueIdentifier>{76b260cf-1fe0-46f4-ae8e-6a0ad95fd83b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services">
+      <UniqueIdentifier>{038f5fb6-4ca2-48a6-8091-7ce5632880d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services">
+      <UniqueIdentifier>{85d9ff88-97b5-4b1d-843e-fc4affe0b304}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -24,22 +36,40 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InputHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Command.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InputHandling</Filter>
     </ClInclude>
     <ClInclude Include="GoCommand.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InputHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Header Files\InputHandling</Filter>
     </ClInclude>
     <ClInclude Include="InvestigateCommand.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InputHandling</Filter>
     </ClInclude>
     <ClInclude Include="LookCommand.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\InputHandling</Filter>
     </ClInclude>
     <ClInclude Include="TakeCommand.h">
+      <Filter>Header Files\InputHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="ServiceLocator.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleWriter.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CorridorStringDefinitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,22 +80,37 @@
     <ClCompile Include="TheCorridor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InputHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Command.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\InputHandling</Filter>
     </ClCompile>
     <ClCompile Include="GoCommand.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\InputHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source Files\InputHandling</Filter>
     </ClCompile>
     <ClCompile Include="InvestigateCommand.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\InputHandling</Filter>
     </ClCompile>
     <ClCompile Include="LookCommand.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\InputHandling</Filter>
     </ClCompile>
     <ClCompile Include="TakeCommand.cpp">
+      <Filter>Source Files\InputHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="ServiceLocator.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleWriter.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -6,6 +6,6 @@ class InvestigateCommand : public Command
 public:
 	InvestigateCommand(void);
 	~InvestigateCommand(void);
-	void Execute() {}
+	void Execute(Player* aPlayer);
 };
 

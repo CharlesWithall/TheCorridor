@@ -4,8 +4,10 @@
 class GoCommand : public Command
 {
 public:
-	GoCommand(void);
+	GoCommand(const Direction& aDirection);
 	~GoCommand(void);
-	void Execute() {}
+	void Execute(Player* aPlayer);
+private:
+	const Direction myDirection;
 };
 

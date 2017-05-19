@@ -6,6 +6,6 @@ class LookCommand : public Command
 public:
 	LookCommand(void);
 	~LookCommand(void);
-	void Execute() {}
+	void Execute(Player* aPlayer);
 };
 

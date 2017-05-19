@@ -4,8 +4,10 @@
 class TakeCommand : public Command
 {
 public:
-	TakeCommand(void);
+	TakeCommand(const Direction& aDirection);
 	~TakeCommand(void);
-	void Execute() {}
+	void Execute(Player* aPlayer);
+private:
+	Direction myDirection;
 };
 
