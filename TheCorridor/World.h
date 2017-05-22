@@ -32,21 +32,5 @@ private:
 	void Init();
 
 	Room** myMap;
-	Room* myCorridorOne;
-	Room* myCorridorTwo;
-	Room* myCorridorThree;
-	Room* myCorridorFour;
-	Room* myCorridorFive;
-	Room* myCorridorSix;
-	Room* myCorridorSeven;
-
-	Room* myDrawingRoom;
-	Room* myLibrary;
-	Room* mySecretRoom;
-	Room* myTreasury;
-	Room* myWinery;
-	Room* myBathroom;
-	Room* myPlayroom;
-	Room* myCourtyard;
 };
 
