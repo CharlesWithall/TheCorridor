@@ -81,7 +81,7 @@
   <ItemGroup>
     <ClInclude Include="Command.h" />
     <ClInclude Include="ConsoleWriter.h" />
-    <ClInclude Include="CorridorStringDefinitions.h" />
+    <ClInclude Include="Definitions.h" />
     <ClInclude Include="GoCommand.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="InvestigateCommand.h" />
@@ -93,10 +93,12 @@
     <ClInclude Include="TakeCommand.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="XMLParser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="ConsoleWriter.cpp" />
+    <ClCompile Include="Definitions.cpp" />
     <ClCompile Include="GoCommand.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="InvestigateCommand.cpp" />
@@ -111,6 +113,7 @@
     <ClCompile Include="TakeCommand.cpp" />
     <ClCompile Include="TheCorridor.cpp" />
     <ClCompile Include="World.cpp" />
+    <ClCompile Include="XMLParser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

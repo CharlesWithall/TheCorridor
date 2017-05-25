@@ -3,8 +3,6 @@
 #include <string>
 #include <iostream>
 
-class ServiceLocator;
-
 class ConsoleWriter
 {
 	friend class ServiceLocator;

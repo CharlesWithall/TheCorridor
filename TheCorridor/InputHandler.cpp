@@ -36,16 +36,16 @@ Command* InputHandler::HandleInput(const std::string& aUserInput)
 			}
 
 			return new GoCommand(direction);
-		case TAKE:
+		case LOOK:
 			if (!ConvertStringToDirection(lastWord, direction))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
 				return NULL;
 			}
 
+			return new LookCommand(direction);
+		case TAKE:
 			return new TakeCommand(direction);
-		case LOOK:
-			return new LookCommand;
 		case INVESTIGATE:
 			return new InvestigateCommand;
 		default:

@@ -19,7 +19,7 @@ void GoCommand::Execute(Player* aPlayer)
 
 	if (newRoom)
 	{
-		aPlayer->GetCurrentRoom()->Exit();
+		aPlayer->GetCurrentRoom()->Exit(myDirection);
 		aPlayer->MoveTo(newRoom);
 		aPlayer->GetCurrentRoom()->Enter();
 	}

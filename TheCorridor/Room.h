@@ -5,14 +5,20 @@
 class Room
 {
 public:
-	Room(std::string anEntryText, Room* aNorthRoom, Room* aWestRoom, Room* aSouthRoom, Room* anEastRoom);
+	Room(Room* aNorthRoom, Room* aWestRoom, Room* aSouthRoom, Room* anEastRoom, const int& roomID);
 	~Room(void);
 	void Enter();
-	void Exit();
-	Room* GetAdjacentRoom(Direction aDirection);
-	const std::string myEntryText;
+	void Exit(const Direction& aDirection);
+	void Look(const Direction& aDirection);
+	Room* GetAdjacentRoom(const Direction& aDirection);
 private:
+	void Init();
+
+	const int myRoomId;
+	const std::string myEntryText;
 	std::map<Direction, Room*> myAdjacentRooms;
+	std::map<Direction, std::string> myLookDialogue;
+	std::map<Direction, std::string> myGoDialogue;
 };
 
 

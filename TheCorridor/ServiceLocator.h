@@ -1,11 +1,8 @@
 #pragma once
 
 #include "ConsoleWriter.h"
-#include "StringDefiner.h"
-#include "CorridorStringDefinitions.h"
-
-enum Action { GO, LOOK, TAKE, INVESTIGATE };
-enum Direction { NORTH, EAST, SOUTH, WEST };
+#include "Definitions.h"
+#include "XMLParser.h"
 
 class ServiceLocator
 {
@@ -14,7 +11,11 @@ public:
 	~ServiceLocator(void);
 
 	static ConsoleWriter& GetConsoleWriter();
+	static Definitions& GetDefinitions();
+	static XMLParser& GetData();
 private:
 	static ConsoleWriter* theConsoleWriterInstance;
+	static Definitions* theDefinitionsInstance;
+	static XMLParser* theDataInstance;
 };
 

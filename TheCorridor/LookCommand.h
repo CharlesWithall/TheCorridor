@@ -4,8 +4,10 @@
 class LookCommand : public Command
 {
 public:
-	LookCommand(void);
+	LookCommand(Direction aDirection);
 	~LookCommand(void);
 	void Execute(Player* aPlayer);
+private:
+	const Direction myDirection;
 };
 
