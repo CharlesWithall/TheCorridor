@@ -1,0 +1,20 @@
+<INFERNO Name="INFERNO", RoomID="8", Id="0"/>
+<PURGATORIO Name="PURGATORIO", RoomID="8", Id="1"/>
+<PARADISUM Name="PARADISUM", RoomID="8", Id="2"/>
+<BOTTLE1 Name="BOTTLE1", RoomID="11", Id="3"/>
+<BOTTLE2 Name="BOTTLE2", RoomID="11", Id="4"/>
+<BOTTLE3 Name="BOTTLE3", RoomID="11", Id="5"/>
+<BUCKET Name="BUCKET", RoomID="7", Id="6"/>
+<BLUE_KEY Name="BLUE KEY", RoomID="7", Id="7", ItemLocked="TRUE"/>
+<GREEN_KEY Name="GREEN KEY", RoomID="13", Id="8", ItemLocked="TRUE"/>
+<PURPLE_KEY Name="PURPLE KEY", RoomID="14", Id="9", ItemLocked="TRUE"/>
+<RED_KEY Name="RED KEY", RoomID="8", Id="10", ItemLocked="TRUE"/>
+<YELLOW_KEY Name="YELLOW KEY", RoomID="5", Id="11", ItemLocked="TRUE"/>
+<MAP1 Name="MAP1", Id="12"/>
+<MAP2 Name="MAP2", Id="13"/>
+<MAP3 Name="MAP3", Id="14"/>
+<MATCHBOX Name="MATCHBOX", RoomID="8", Id="15", ItemLocked="TRUE"/>
+<NOTE1 Name="NOTE1", RoomID="5", Id="16"/>
+<NOTE2 Name="NOTE2", Id="17"/>
+<POKER Name="POKER", RoomID="7", Id="18"/>
+<STAFF Name="STAFF", RoomID="9", Id="19"/>

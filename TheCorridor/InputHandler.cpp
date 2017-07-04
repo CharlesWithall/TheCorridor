@@ -10,16 +10,17 @@ InputHandler::~InputHandler(void)
 {
 }
 
-Command* InputHandler::HandleInput(const std::string& aUserInput)
+Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUserInput)
 {
 	std::string firstWord;
 	std::string lastWord;
 	Action action;
 	Direction direction;
+	ItemID itemID;
 
 	GetFirstTwoWordsFromString(aUserInput, firstWord, lastWord);	
 
-	if (!ConvertStringToAction(firstWord, action))
+	if (!ConvertStringToAction(firstWord, action, aPlayer))
 	{
 		ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_COMMAND_STRING);
 		return NULL;
@@ -45,9 +46,39 @@ Command* InputHandler::HandleInput(const std::string& aUserInput)
 
 			return new LookCommand(direction);
 		case TAKE:
-			return new TakeCommand(direction);
-		case INVESTIGATE:
-			return new InvestigateCommand;
+			if (!ConvertStringToItem(lastWord, itemID))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_ITEM_STRING);
+				return NULL;
+			}
+
+			return new TakeCommand(itemID);
+		case EXAMINE:
+			if (!ConvertStringToItem(lastWord, itemID))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_ITEM_STRING);
+				return NULL;
+			}
+
+			return new ExamineCommand(itemID);
+		case IGNITE:
+			int candleNumber;
+
+			if (!ConvertStringToInt(lastWord, candleNumber))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_CANDLE_STRING);
+				return NULL;
+			}
+
+			return new IgniteCommand(candleNumber);
+		case MOVE:
+			if (!ConvertStringToDirection(lastWord, direction))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
+				return NULL;
+			}
+
+			return new MoveCommand(direction);
 		default:
 			throw "Invalid action command generated";
 		}
@@ -60,7 +91,7 @@ void InputHandler::GetFirstTwoWordsFromString(const std::string& anInputString, 
 	aSecondWord = anInputString.substr(anInputString.find_first_of(" \t")+1, std::string::npos);	
 }
 
-bool InputHandler::ConvertStringToAction(const std::string& anInputString, Action& anAction)
+bool InputHandler::ConvertStringToAction(const std::string& anInputString, Action& anAction, const Player* aPlayer)
 {
 	if (CompareStringOrFirstLetter(anInputString, "GO"))
 	{
@@ -80,9 +111,21 @@ bool InputHandler::ConvertStringToAction(const std::string& anInputString, Actio
 		return true;
 	}
 
-	if (CompareStringOrFirstLetter(anInputString, "INVESTIGATE"))
+	if (CompareStringOrFirstLetter(anInputString, "EXAMINE"))
 	{
-		anAction = Action::INVESTIGATE;
+		anAction = Action::EXAMINE;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "IGNITE") && aPlayer->GetCurrentRoom()->GetID() == aPlayer->GetMiniGameComponent()->GetChandelierMiniGame()->GetLocation())
+	{
+		anAction = Action::IGNITE;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "MOVE") && aPlayer->GetCurrentRoom()->GetID() == aPlayer->GetMiniGameComponent()->GetChessBoardMiniGame()->GetLocation())
+	{
+		anAction = Action::MOVE;
 		return true;
 	}
 
@@ -116,6 +159,31 @@ bool InputHandler::ConvertStringToDirection(const std::string& anInputString, Di
 	}
 
 	return false;
+}
+
+bool InputHandler::ConvertStringToItem(const std::string& anInputString, ItemID& anItemID)
+{
+	std::string inputString = anInputString;
+
+	for(int i = 0; i < inputString.length(); ++i)
+	{
+		inputString[i] = toupper(inputString[i]);
+	}
+
+	anItemID = ServiceLocator::GetData().GetItemIDByName(inputString);
+
+	return anItemID != ITEM_INVALID;
+}
+
+bool InputHandler::ConvertStringToInt(const std::string& anInputString, int& aCandleNumber)
+{
+	aCandleNumber = anInputString[0] - '0';
+	if (aCandleNumber < 1 || aCandleNumber > 9)
+	{
+		return false;
+	}
+
+	return true;
 }
 
 bool InputHandler::CompareStringOrFirstLetter(const std::string& aUserString, const std::string& aGameString)

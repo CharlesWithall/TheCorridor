@@ -1,148 +1,86 @@
-<MAIN>
-	<CORRIDOR_ONE>
-		<GO>
-			<NORTH = "You step further down the Corridor"/>
-		</GO>
-		<LOOK>
-			<NORTH = "You can see down the Corridor into the darkness"/>
-			<EAST = "There is just a stone wall here"/>
-			<SOUTH = "You see a large oaken door"/>
-			<WEST = "There is just a stone wall here"/>
-		</LOOK>
-	</CORRIDOR_ONE>
-	<CORRIDOR_TWO>
-		<GO>
-			<NORTH = "You step further down the Corridor"/>
-			<SOUTH = "You step back down the Corridor"/>
-			<WEST = "You step into the Drawing Room"/>
-		</GO>
-		<LOOK>
-			<NORTH = "You can see down the Corridor into the darkness"/>
-			<EAST = "There is a painting of Caravaggio's 'David and Goliath'"/>
-			<SOUTH = "You can see down the Corridor into the darkness"/>
-			<WEST = "There is a door into a room"/>
-		</LOOK>
-	</CORRIDOR_TWO>
-	<CORRIDOR_THREE>
-		<GO>
-			<NORTH = "You step further down the Corridor"/>
-			<SOUTH = "You step back down the Corridor"/>
-			<EAST = "You step into the Library"/>
-		</GO>
-		<LOOK>
-			<NORTH = "You can see down the corridor into the darkness"/>
-			<EAST = "There is a door into a room"/>
-			<SOUTH = "You can see down the Corridor into the darkness"/>
-			<WEST = "There is just a stone wall here"/>
-		</LOOK>
-	</CORRIDOR_THREE>
-	<CORRIDOR_FOUR>
-		<GO>
-			<WEST = "You step into the Winery"/>
-			<SOUTH = "You step back down the Corridor"/>
-			<EAST = "You step into the Treasury"/>
-		</GO>
-		<LOOK>
-			<NORTH = "The ceiling has collapsed, your way is blocked"/>
-			<EAST = "There is a door into a room"/>
-			<SOUTH = "You can see down the corridor into the darkness"/>
-			<WEST = "There is a door into a room"/>
-		</LOOK>
-	</CORRIDOR_FOUR>
-	<CORRIDOR_FIVE>
-		<GO>
-			<WEST = "You step into the Bathroom"/>
-			<NORTH = "You step further down the Corridor"/>
-			<EAST = "You step into the Play room"/>
-		</GO>
-		<LOOK>
-			<SOUTH = "The ceiling has collapsed, your way is blocked"/>
-			<EAST = "There is a door into a room"/>
-			<NORTH = "You can see down the corridor into the darkness"/>
-			<WEST = "There is a door into a room"/>
-		</LOOK>
-	</CORRIDOR_FIVE>
-	<CORRIDOR_SIX>
-		<GO>
-			<NORTH = "You step further down the Corridor"/>
-			<SOUTH = "You step back down the Corridor"/>
-		</GO>
-		<LOOK>
-			<SOUTH = "You can see down the corridor into the darkness"/>
-			<EAST = "There is just a stone wall here"/>
-			<NORTH = "You can see down the corridor into the darkness"/>
-			<WEST = "There is just a stone wall here"/>
-		</LOOK>
-	</CORRIDOR_SIX>
-	<CORRIDOR_SEVEN>
-		<GO>
-			<EAST = "You step into the Courtyard"/>
-			<SOUTH = "You step back down the Corridor"/>
-		</GO>
-		<LOOK>
-			<SOUTH = "You can see down the corridor into the darkness"/>
-			<EAST = "There is a door leading outside"/>
-			<NORTH = "You can see a giant stone door with five keyholes"/>
-			<WEST = "There is just a stone wall here"/>
-		</LOOK>
-	</CORRIDOR_SEVEN>
-	<DRAWING_ROOM>
-		<GO>
-			<EAST = "You step back into the Corridor"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</DRAWING_ROOM>
-	<LIBRARY>
-		<GO>
-			<WEST = "You step back into the Corridor"/>
-			<EAST = "You step into a Secret Room"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</LIBRARY>
-	<SECRET_ROOM>
-		<GO>
-			<EAST = "You step back into the Library"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</SECRET_ROOM>
-	<WINERY>
-		<GO>
-			<EAST = "You step back into the Corridor"/>
-			<NORTH = "You step into the Bathroom"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</WINERY>
-	<TREASURY>
-		<GO>
-			<WEST = "You step back into the Corridor"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</TREASURY>
-	<BATHROOM>
-		<GO>
-			<EAST = "You step back into the Corridor"/>
-			<SOUTH = "You step into the Winery"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</BATHROOM>
-	<PLAYROOM>
-		<GO>
-			<WEST = "You step back into the Corridor"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</PLAYROOM>
-	<COURTYARD>
-		<GO>
-			<WEST = "You step back into the Corridor"/>
-		</GO>
-		<LOOK>
-		</LOOK>
-	</COURTYARD>
-</MAIN>
+<CORRIDOR_ONE Id="0", Name="Corridor One">
+	<GO>
+		<NORTH Dialogue = "You step further down the Corridor"/>
+	</GO>
+	<LOOK>
+		<NORTH Dialogue = "You can see down the Corridor into the darkness"/>
+		<EAST Dialogue = "There is just a stone wall here"/>
+		<SOUTH Dialogue = "You see a large oaken door"/>
+		<WEST Dialogue = "There is just a stone wall here"/>
+	</LOOK>
+</CORRIDOR_ONE>
+<CORRIDOR_TWO Id="1", Name="Corridor One">
+	<GO>
+		<NORTH Dialogue = "You step further down the Corridor"/>
+		<SOUTH Dialogue = "You step back down the Corridor"/>
+		<WEST Dialogue = "You step into the Drawing Room"/>
+	</GO>
+	<LOOK>
+		<NORTH Dialogue = "You can see down the Corridor into the darkness"/>
+		<EAST Dialogue = "There is a painting of Caravaggio's 'David and Goliath'"/>
+		<SOUTH Dialogue = "You can see down the Corridor into the darkness"/>
+		<WEST Dialogue = "There is a door into a room"/>
+	</LOOK>
+</CORRIDOR_TWO>
+<CORRIDOR_THREE Id="2", Name="Corridor Three">
+	<GO>
+		<NORTH Dialogue = "You step further down the Corridor"/>
+		<SOUTH Dialogue = "You step back down the Corridor"/>
+		<EAST Dialogue = "You step into the Library"/>
+	</GO>
+	<LOOK>
+		<NORTH Dialogue = "You can see down the corridor into the darkness"/>
+		<EAST Dialogue = "There is a door into a room"/>
+		<SOUTH Dialogue = "You can see down the Corridor into the darkness"/>
+		<WEST Dialogue = "There is just a stone wall here"/>
+	</LOOK>
+</CORRIDOR_THREE>
+<CORRIDOR_FOUR Id="3", Name="Corridor Four">
+	<GO>
+		<WEST Dialogue = "You step into the Winery"/>
+		<SOUTH Dialogue = "You step back down the Corridor"/>
+		<EAST Dialogue = "You step into the Treasury"/>
+	</GO>
+	<LOOK>
+		<NORTH Dialogue = "The ceiling has collapsed, your way is blocked"/>
+		<EAST Dialogue = "There is a door into a room"/>
+		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
+		<WEST Dialogue = "There is a door into a room"/>
+	</LOOK>
+</CORRIDOR_FOUR>
+<CORRIDOR_FIVE Id="4", Name="Corridor Five">
+	<GO>
+		<WEST Dialogue = "You step into the Bathroom"/>
+		<NORTH Dialogue = "You step further down the Corridor"/>
+		<EAST Dialogue = "You step into the Play room"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "The ceiling has collapsed, your way is blocked"/>
+		<EAST Dialogue = "There is a door into a room"/>
+		<NORTH Dialogue = "You can see down the corridor into the darkness"/>
+		<WEST Dialogue = "There is a door into a room"/>
+	</LOOK>
+</CORRIDOR_FIVE>
+<CORRIDOR_SIX Id="5", Name="Corridor Six">
+	<GO>
+		<NORTH Dialogue = "You step further down the Corridor"/>
+		<SOUTH Dialogue = "You step back down the Corridor"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
+		<EAST Dialogue = "There is just a stone wall here"/>
+		<NORTH Dialogue = "You can see down the corridor into the darkness"/>
+		<WEST Dialogue = "There is just a stone wall here"/>
+	</LOOK>
+</CORRIDOR_SIX>
+<CORRIDOR_SEVEN Id="6", Name="Corridor Seven">
+	<GO>
+		<SOUTH Dialogue = "You step back down the Corridor"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
+		<EAST Dialogue = "There is a door leading outside"/>
+		<NORTH Dialogue = "You can see a giant stone door with five keyholes"/>
+		<WEST Dialogue = "There is just a stone wall here"/>
+	</LOOK>
+</CORRIDOR_SEVEN>

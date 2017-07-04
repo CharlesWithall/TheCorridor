@@ -1,8 +1,8 @@
 #pragma once
 
 #include "ConsoleWriter.h"
+#include "DataRepository.h"
 #include "Definitions.h"
-#include "XMLParser.h"
 
 class ServiceLocator
 {
@@ -12,10 +12,10 @@ public:
 
 	static ConsoleWriter& GetConsoleWriter();
 	static Definitions& GetDefinitions();
-	static XMLParser& GetData();
+	static DataRepository& GetData();
 private:
 	static ConsoleWriter* theConsoleWriterInstance;
 	static Definitions* theDefinitionsInstance;
-	static XMLParser* theDataInstance;
+	static DataRepository* theDataInstance;
 };
 

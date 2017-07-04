@@ -13,17 +13,41 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\InputHandling">
-      <UniqueIdentifier>{8e8e507a-87a0-4bf6-b807-fccbe448eeac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\InputHandling">
-      <UniqueIdentifier>{76b260cf-1fe0-46f4-ae8e-6a0ad95fd83b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Services">
       <UniqueIdentifier>{038f5fb6-4ca2-48a6-8091-7ce5632880d4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Services">
       <UniqueIdentifier>{85d9ff88-97b5-4b1d-843e-fc4affe0b304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services\Data Access">
+      <UniqueIdentifier>{897b369e-67f5-4ab4-b5fc-cdff513cc148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input Handling">
+      <UniqueIdentifier>{8e8e507a-87a0-4bf6-b807-fccbe448eeac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input Handling">
+      <UniqueIdentifier>{76b260cf-1fe0-46f4-ae8e-6a0ad95fd83b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Services\Data Access">
+      <UniqueIdentifier>{620bc901-04c3-4330-9442-535dedd1cf45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Unit Tests">
+      <UniqueIdentifier>{e8f3fb21-4238-403c-87d3-452d0bcb468f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Unit Tests">
+      <UniqueIdentifier>{356dbfed-5816-41d8-90a9-51eb5fa25f06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MiniGames">
+      <UniqueIdentifier>{2403f7db-a5ed-406e-b622-5a951c4c32c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MiniGames">
+      <UniqueIdentifier>{20301002-b508-494b-be9e-a7557346454c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Player Components">
+      <UniqueIdentifier>{4ea77820-b2d8-4df3-a9a0-afa2a39cc4b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player Components">
+      <UniqueIdentifier>{5ee473e6-b975-44cb-adf6-e3ebcfacf6a1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,22 +61,19 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Command.h">
-      <Filter>Header Files\InputHandling</Filter>
+      <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
     <ClInclude Include="GoCommand.h">
-      <Filter>Header Files\InputHandling</Filter>
+      <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
     <ClInclude Include="InputHandler.h">
-      <Filter>Header Files\InputHandling</Filter>
-    </ClInclude>
-    <ClInclude Include="InvestigateCommand.h">
-      <Filter>Header Files\InputHandling</Filter>
+      <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
     <ClInclude Include="LookCommand.h">
-      <Filter>Header Files\InputHandling</Filter>
+      <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
     <ClInclude Include="TakeCommand.h">
-      <Filter>Header Files\InputHandling</Filter>
+      <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
     <ClInclude Include="ServiceLocator.h">
       <Filter>Header Files\Services</Filter>
@@ -72,8 +93,53 @@
     <ClInclude Include="Definitions.h">
       <Filter>Header Files\Services</Filter>
     </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="XMLParser.h">
-      <Filter>Header Files\Services</Filter>
+      <Filter>Header Files\Services\Data Access</Filter>
+    </ClInclude>
+    <ClInclude Include="DataRepository.h">
+      <Filter>Header Files\Services\Data Access</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLElement.h">
+      <Filter>Header Files\Services\Data Access</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLParser2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIT_TEST_XmlParser.h">
+      <Filter>Header Files\Unit Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIT_TEST.h">
+      <Filter>Header Files\Unit Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="UNIT_TEST_DataRepository.h">
+      <Filter>Header Files\Unit Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="IgniteCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
+    <ClInclude Include="ExamineCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
+    <ClInclude Include="ChandelierMiniGame.h">
+      <Filter>Header Files\MiniGames</Filter>
+    </ClInclude>
+    <ClInclude Include="ChessBoardMiniGame.h">
+      <Filter>Header Files\MiniGames</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGameComponent.h">
+      <Filter>Header Files\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemsComponent.h">
+      <Filter>Header Files\Player Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -84,22 +150,19 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Command.cpp">
-      <Filter>Source Files\InputHandling</Filter>
+      <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
     <ClCompile Include="GoCommand.cpp">
-      <Filter>Source Files\InputHandling</Filter>
+      <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
     <ClCompile Include="InputHandler.cpp">
-      <Filter>Source Files\InputHandling</Filter>
-    </ClCompile>
-    <ClCompile Include="InvestigateCommand.cpp">
-      <Filter>Source Files\InputHandling</Filter>
+      <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
     <ClCompile Include="LookCommand.cpp">
-      <Filter>Source Files\InputHandling</Filter>
+      <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
     <ClCompile Include="TakeCommand.cpp">
-      <Filter>Source Files\InputHandling</Filter>
+      <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
     <ClCompile Include="ServiceLocator.cpp">
       <Filter>Source Files\Services</Filter>
@@ -119,8 +182,51 @@
     <ClCompile Include="Definitions.cpp">
       <Filter>Source Files\Services</Filter>
     </ClCompile>
-    <ClCompile Include="XMLParser.cpp">
-      <Filter>Source Files\Services</Filter>
+    <ClCompile Include="Item.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="XMLParser.cpp">
+      <Filter>Source Files\Services\Data Access</Filter>
+    </ClCompile>
+    <ClCompile Include="DataRepository.cpp">
+      <Filter>Source Files\Services\Data Access</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLElement.cpp">
+      <Filter>Source Files\Services\Data Access</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLParser2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIT_TEST_XmlParser.cpp">
+      <Filter>Source Files\Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="UNIT_TEST_DataRepository.cpp">
+      <Filter>Source Files\Unit Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="IgniteCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="ExamineCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="ChandelierMiniGame.cpp">
+      <Filter>Source Files\MiniGames</Filter>
+    </ClCompile>
+    <ClCompile Include="ChessBoardMiniGame.cpp">
+      <Filter>Source Files\MiniGames</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGameComponent.cpp">
+      <Filter>Source Files\Player Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemsComponent.cpp">
+      <Filter>Source Files\Player Components</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

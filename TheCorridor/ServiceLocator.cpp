@@ -3,7 +3,7 @@
 
 ConsoleWriter* ServiceLocator::theConsoleWriterInstance;
 Definitions* ServiceLocator::theDefinitionsInstance;
-XMLParser* ServiceLocator::theDataInstance;
+DataRepository* ServiceLocator::theDataInstance;
 
 ServiceLocator::ServiceLocator(void)
 {
@@ -42,11 +42,11 @@ Definitions& ServiceLocator::GetDefinitions()
 	return *theDefinitionsInstance;
 }
 
-XMLParser& ServiceLocator::GetData()
+DataRepository& ServiceLocator::GetData()
 {
 	if (theDataInstance == NULL)
 	{
-		theDataInstance = new XMLParser();
+		theDataInstance = new DataRepository();
 	}
 	return *theDataInstance;
 }
