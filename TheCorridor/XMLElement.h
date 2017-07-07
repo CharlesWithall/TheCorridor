@@ -17,7 +17,7 @@ public:
 	void AddChildElement(XMLElement* anXmlElement) { myChildElements.push_back(anXmlElement); }
 
 	std::string GetDialogueText( const int& aRoomId, const Action& anAction, const Direction& aDirection) const;
-	std::string GetNodeName() { return myNodeName; }
+	std::string GetNodeName() const { return myNodeName; }
 	std::string GetAttributeByKey(const XMLAttributeDefinition& anAttributeDefinition) { return myAttributes[anAttributeDefinition]; }
 	int GetAttributeIDByKey(const XMLAttributeDefinition& anAttributeDefinition) { return std::stoi(GetAttributeByKey(anAttributeDefinition)); }
 	bool GetAttributeBoolByKey(const XMLAttributeDefinition& anAttributeDefinition) { return myAttributes[anAttributeDefinition] == "TRUE"; }

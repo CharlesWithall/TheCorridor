@@ -10,6 +10,7 @@ public:
 	ItemsComponent(void);
 	~ItemsComponent(void);
 	void AddItemToInventory(Item* anItem);
+	const Item* GetItem(const ItemID& anItemID);
 private:
 	std::vector<Item*> myInventory;
 };

@@ -52,7 +52,7 @@ Item* Room::GetItem(const ItemID& anItemID)
 {
 	for (Item* item : myItems)
 	{
-		if (!item->IsLocked() && item->GetItemID() == anItemID)
+		if (item->GetItemID() == anItemID)
 		{
 			return item;
 		}

@@ -42,6 +42,11 @@ XMLAttributeDefinition XMLElement::ConvertStringToAttributeDefinition(const std:
 		return ItemLocked;
 	}
 
+	if (aString == "Examine")
+	{
+		return Examine;
+	}
+
 	throw "Invalid attribute set in XML File";
 }
 

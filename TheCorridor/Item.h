@@ -5,7 +5,7 @@
 class Item
 {
 public:
-	Item(const std::string anItemName, const ItemID anItemID, const RoomID aRoomID, bool isLocked = false);
+	Item(const std::string anItemName, const std::string anExamineDialogue, const ItemID anItemID, const RoomID aRoomID, bool isLocked = false);
 	~Item(void);
 
 	void Unlock() { myIsLocked = false; }
@@ -17,11 +17,15 @@ public:
 	const RoomID GetRoomID() const { return myRoomID; }
 	const ItemID GetItemID() const { return myItemID; }
 	const std::string GetItemName() const { return myItemName; }
+	const std::string GetDialogue() const { return myDefaultExamineDialogue; }
 private:
 
 	const std::string myItemName;
+	const std::string myDefaultExamineDialogue;
+
 	const ItemID myItemID;
 	const RoomID myRoomID;
+
 	bool myIsOwnedByPlayer;
 	bool myIsLocked;
 };

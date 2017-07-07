@@ -1,20 +1,37 @@
-<INFERNO Name="INFERNO", RoomID="8", Id="0"/>
-<PURGATORIO Name="PURGATORIO", RoomID="8", Id="1"/>
-<PARADISUM Name="PARADISUM", RoomID="8", Id="2"/>
-<BOTTLE1 Name="BOTTLE1", RoomID="11", Id="3"/>
-<BOTTLE2 Name="BOTTLE2", RoomID="11", Id="4"/>
-<BOTTLE3 Name="BOTTLE3", RoomID="11", Id="5"/>
-<BUCKET Name="BUCKET", RoomID="7", Id="6"/>
-<BLUE_KEY Name="BLUE KEY", RoomID="7", Id="7", ItemLocked="TRUE"/>
-<GREEN_KEY Name="GREEN KEY", RoomID="13", Id="8", ItemLocked="TRUE"/>
-<PURPLE_KEY Name="PURPLE KEY", RoomID="14", Id="9", ItemLocked="TRUE"/>
-<RED_KEY Name="RED KEY", RoomID="8", Id="10", ItemLocked="TRUE"/>
-<YELLOW_KEY Name="YELLOW KEY", RoomID="5", Id="11", ItemLocked="TRUE"/>
-<MAP1 Name="MAP1", Id="12"/>
-<MAP2 Name="MAP2", Id="13"/>
-<MAP3 Name="MAP3", Id="14"/>
-<MATCHBOX Name="MATCHBOX", RoomID="8", Id="15", ItemLocked="TRUE"/>
-<NOTE1 Name="NOTE1", RoomID="5", Id="16"/>
-<NOTE2 Name="NOTE2", Id="17"/>
-<POKER Name="POKER", RoomID="7", Id="18"/>
-<STAFF Name="STAFF", RoomID="9", Id="19"/>
+<!--KEEP THIS DOCUMENT SYNCHRONISED WITH Definitions.h -> ItemID-->
+
+<!--Pickupable Items-->
+<INFERNO Name="INFERNO", RoomID="8", Id="0" Examine="You flip through the pages. It's just a book."/>
+<PURGATORIO Name="PURGATORIO", RoomID="8", Id="1" Examine="You flip through the pages. Hidden inside you find a MATCHBOX!"/>
+<PARADISUM Name="PARADISUM", RoomID="8", Id="2" Examine="You flip through the pages. It's just a book."/>
+<GOULAINE Name="GOULAINE", RoomID="11", Id="3" Examine="It's a bottle of wine with the label 'Chateau de Goulaine'"/>
+<RICASOLI Name="RICASOLI", RoomID="11", Id="4" Examine="It's a bottle of wine with the label 'Ricasoli'"/>
+<CODORNIU Name="CODORNIU", RoomID="11", Id="5" Examine="It's a bottle of wine with the label 'Codorniu'"/>
+<BUCKET Name="BUCKET", RoomID="7", Id="6" Examine="It's a metal bucket that could hold a lot of water"/>
+<BLUE_KEY Name="BLUE KEY", RoomID="7", Id="7", ItemLocked="TRUE" Examine="It's a blue key"/> // behind the fireplace
+<GREEN_KEY Name="GREEN KEY", RoomID="13", Id="8", ItemLocked="TRUE" Examine="It's a green key"/> // across the chessboard
+<PURPLE_KEY Name="PURPLE KEY", RoomID="14", Id="9", ItemLocked="TRUE" Examine="It's a purple key"/> // inside the font
+<RED_KEY Name="RED KEY", RoomID="8", Id="10", ItemLocked="TRUE" Examine="It's a red key"/> // behind the bookshelf
+<YELLOW_KEY Name="YELLOW KEY", RoomID="5", Id="11", ItemLocked="TRUE" Examine="It's a yellow key"/> // beneath the candelabra
+<MAP Name="MAP", RoomID="4", Id="12"/>
+<MAP Name="MAP", RoomID="1", Id="12"/>
+<MAP Name="MAP", RoomID="10", Id="12"/>
+<MATCHBOX Name="MATCHBOX", RoomID="8", Id="13", ItemLocked="TRUE" Examine="It's a match box for lighting candles"/>
+<NOTE Name="NOTE", RoomID="11", Id="14"/>
+<NOTE Name="NOTE", RoomID="10", Id="14"/>
+<POKER Name="POKER", RoomID="7", Id="15" Examine="It's a poker with the word 'Goulaine' engraved on it"/>
+<STAFF Name="STAFF", RoomID="9", Id="16"/>
+
+<!--Static Items-->
+<FIREPLACE Name="FIREPLACE", RoomID="7", Id="17", ItemLocked="TRUE" Examine="Behind the flames you see a BLUE KEY, but the fire is too hot to reach it. Sitting on the stone hearth is a POKER and a BUCKET."/>
+<PIPES Name="PIPES", RoomID="12", Id="18", ItemLocked="TRUE" Examine="There is an intricate array of water pipes."/>
+<TILES Name="TILES", RoomID="13", Id="19", ItemLocked="TRUE" Examine="There are tiles and shit!"/>
+<CANDELABRA Name="CANDELABRA", RoomID="5", Id="20", ItemLocked="TRUE" Examine="Dare is like candles and ting"/>
+<FONT Name="FONT", RoomID="14", Id="21", ItemLocked="TRUE" Examine="It's a stone FONT in the centre of the courtyard. The interior has purple stains as if it once held wine."/>
+<BOOKCASE Name="BOOKCASE", RoomID="8", Id="22", ItemLocked="TRUE" Examine="It's a large bookcase stretchin from ceiling to floor and wall to wall."/>
+<WINERACK Name="WINERACK", RoomID="11", Id="23", ItemLocked="TRUE" Examine="The WINERACK has many dusty bottles with different labels on them. Three vineyards standout to you: GOULAINE, RICASOLI and CODORNIU"/>
+<CHEST Name="CHEST", RoomID="10", Id="24", ItemLocked="TRUE" Examine="It's a beautifully ornate golden CHEST. Inside you see a BLACK KEY!"/>
+<BOX Name="BOX", RoomID="10", Id="25", ItemLocked="TRUE" Examine="It's a manky old BOX. Inside you see a crumpled NOTE and a torn piece of MAP"/>
+<TAPESTRY Name="TAPESTRY", RoomID="11", Id="26", ItemLocked="TRUE" Examine="It's a beautiful depiction of Southern France. You look behind the TAPESTRY and see a crumpled NOTE"/>
+<RUBBLE Name="RUBBLE", RoomID="4", Id="27", ItemLocked="TRUE" Examine="You search around the RUBBLE and see a torn piece of a MAP"/>
+<PAINTING Name="PAINTING", RoomID="1", Id="28", ItemLocked="TRUE" Examine="The painting shows two men fighting each other. You look behind the painting and see a torn piece of a MAP."/>

@@ -141,6 +141,12 @@
     <ClInclude Include="ItemsComponent.h">
       <Filter>Header Files\Player Components</Filter>
     </ClInclude>
+    <ClInclude Include="WaterPipesMiniGame.h">
+      <Filter>Header Files\MiniGames</Filter>
+    </ClInclude>
+    <ClInclude Include="RotateCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -224,9 +230,11 @@
     <ClCompile Include="ItemsComponent.cpp">
       <Filter>Source Files\Player Components</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
+    <ClCompile Include="WaterPipesMiniGame.cpp">
+      <Filter>Source Files\MiniGames</Filter>
+    </ClCompile>
+    <ClCompile Include="RotateCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

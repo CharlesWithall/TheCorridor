@@ -38,5 +38,6 @@ private:
 
 	void CloseElement();
 	bool IsOpeningBracket();
+	bool IsComment();
 };
 

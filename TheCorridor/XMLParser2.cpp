@@ -24,24 +24,27 @@ XMLElement* XMLParser2::ParseDocument(const std::string& anXmlPath)
 
 		while(std::getline(myXmlDocument, myCurrentLine))
 		{
-			SetCurrentNodeName();
-			myShouldCloseElementFlag = false;
-
-			if (IsOpeningBracket())
+			if (!IsComment())
 			{
-				XMLElement* newXmlElement = new XMLElement(myCurrentNodeName);
-				AddAllAttributesToElement(newXmlElement);
-				AddElementToParsedDocument(newXmlElement);
+				SetCurrentNodeName();
+				myShouldCloseElementFlag = false;
 
-				if (myShouldCloseElementFlag)
+				if (IsOpeningBracket())
+				{
+					XMLElement* newXmlElement = new XMLElement(myCurrentNodeName);
+					AddAllAttributesToElement(newXmlElement);
+					AddElementToParsedDocument(newXmlElement);
+
+					if (myShouldCloseElementFlag)
+					{
+						CloseElement();
+					}
+				}
+				else
 				{
 					CloseElement();
 				}
-			}
-			else
-			{
-				CloseElement();
-			}
+			}			
 		}
 	}
 	else
@@ -62,7 +65,7 @@ void XMLParser2::AddAllAttributesToElement(XMLElement* anXmlElement)
 	int startIndex = currentLine.find(myCurrentNodeName) + myCurrentNodeName.length();
 	currentLine = currentLine.substr(startIndex);
 
-	while (currentLine[0] != '/' && currentLine[0] != '>')
+	while (!currentLine.empty() && currentLine[0] != '/' && currentLine[0] != '>')
 	{
 		std::string attributeKey;
 		std::string attributeValue;
@@ -112,4 +115,14 @@ void XMLParser2::SetCurrentNodeName()
 	int startIndex = myCurrentLine.find_first_of('<') + 1;
 	int stringLength = myCurrentLine.find_first_of(" >") - startIndex;
 	myCurrentNodeName = myCurrentLine.substr(startIndex, stringLength);
+}
+
+bool XMLParser2::IsComment()
+{
+	if (myCurrentLine.length() > 2 && myCurrentLine[0] == '<' && myCurrentLine[1] == '!')
+	{
+		return true;
+	}
+
+	return false;
 }

@@ -35,9 +35,8 @@ void ChessBoardMiniGame::MoveToPodium(const Direction& aDirection)
 	{
 		++currentPosition;
 		ServiceLocator::GetConsoleWriter().WriteStringToConsole("You step onto the next tile...");
-		if (currentPosition == LENGTH_OF_PATH)
+		if (currentPosition == LENGTH_OF_PATH && myRoom->UnlockItem(GREEN_KEY))
 		{
-			myRoom->UnlockItem(GREEN_KEY);
 			ServiceLocator::GetConsoleWriter().WriteStringToConsole("You've reach the podium with the %s", myRoom->GetItem(GREEN_KEY)->GetItemName());
 		}
 	}

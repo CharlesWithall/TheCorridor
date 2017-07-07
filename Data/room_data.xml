@@ -17,7 +17,7 @@
 	</GO>
 	<LOOK>
 		<NORTH Dialogue = "You can see down the Corridor into the darkness"/>
-		<EAST Dialogue = "There is a painting of Caravaggio's 'David and Goliath'"/>
+		<EAST Dialogue = "There is a PAINTING of Caravaggio's 'David and Goliath'"/>
 		<SOUTH Dialogue = "You can see down the Corridor into the darkness"/>
 		<WEST Dialogue = "There is a door into a room"/>
 	</LOOK>
@@ -42,7 +42,7 @@
 		<EAST Dialogue = "You step into the Treasury"/>
 	</GO>
 	<LOOK>
-		<NORTH Dialogue = "The ceiling has collapsed, your way is blocked"/>
+		<NORTH Dialogue = "The ceiling has collapsed, your way is blocked by a large pile of rubble"/>
 		<EAST Dialogue = "There is a door into a room"/>
 		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
 		<WEST Dialogue = "There is a door into a room"/>
@@ -55,7 +55,7 @@
 		<EAST Dialogue = "You step into the Play room"/>
 	</GO>
 	<LOOK>
-		<SOUTH Dialogue = "The ceiling has collapsed, your way is blocked"/>
+		<SOUTH Dialogue = "The ceiling has collapsed, your way is blocked by a large pile of RUBBLE"/>
 		<EAST Dialogue = "There is a door into a room"/>
 		<NORTH Dialogue = "You can see down the corridor into the darkness"/>
 		<WEST Dialogue = "There is a door into a room"/>
@@ -70,12 +70,13 @@
 		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
 		<EAST Dialogue = "There is just a stone wall here"/>
 		<NORTH Dialogue = "You can see down the corridor into the darkness"/>
-		<WEST Dialogue = "There is just a stone wall here"/>
+		<WEST Dialogue = "There is a peculiar arrangement of CANDELABRA on the wall"/>
 	</LOOK>
 </CORRIDOR_SIX>
 <CORRIDOR_SEVEN Id="6", Name="Corridor Seven">
 	<GO>
 		<SOUTH Dialogue = "You step back down the Corridor"/>
+		<EAST Dialogue = "You step into the Courtyard"/>
 	</GO>
 	<LOOK>
 		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
@@ -84,3 +85,94 @@
 		<WEST Dialogue = "There is just a stone wall here"/>
 	</LOOK>
 </CORRIDOR_SEVEN>
+<DRAWING_ROOM Id="7", Name="Drawing Room">
+	<GO>
+		<EAST Dialogue = "You step back into the Corridor"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "The wall is covered with deep red wallpaper and a few paintings"/>
+		<EAST Dialogue = "There is a door leading back to the Corridor"/>
+		<NORTH Dialogue = "The wall is covered with deep red wallpaper and a few paintings"/>
+		<WEST Dialogue = "You can see a great stone FIREPLACE in front of you"/>
+	</LOOK>
+</DRAWING_ROOM>
+<LIBRARY Id="8", Name="Library">
+	<GO>
+		<WEST Dialogue = "You step back into the Corridor"/>
+		<EAST Dialogue = "You step behind the BOOKCASE into a secret rom"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There is a cobblestone wall"/>
+		<EAST Dialogue = "There is a huge BOOKCASE stretching from floor to ceiling and from wall to wall"/>
+		<NORTH Dialogue = "There is one shelf with three ornate books on it entitled INFERNO, PURGATORIO and PARADISUM"/>
+		<WEST Dialogue = "There is a door leading back to the Corridor"/>
+	</LOOK>
+</LIBRARY>
+<SECRET_ROOM Id="9", Name="Secret Room">
+	<GO>
+		<WEST Dialogue = "You step back into the Library"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There is a damp cobblestone wall covered with moss"/>
+		<EAST Dialogue = "There is a damp cobblestone wall covered with moss"/>
+		<NORTH Dialogue = "There is a damp cobblestone wall covered with moss"/>
+		<WEST Dialogue = "There is the open bookcase leading back to the library"/>
+	</LOOK>
+</SECRET_ROOM>
+<TREASURY Id="10", Name="Treasury">
+	<GO>
+		<WEST Dialogue = "You step back into the Corridor"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There is a great ornate CHEST"/>
+		<EAST Dialogue = "There is a small barred window, too high to see through"/>
+		<NORTH Dialogue = "There is a big rusty BOX leaning against the wall"/>
+		<WEST Dialogue = "There is a door leading back to the corridor"/>
+	</LOOK>
+</TREASURY>
+<WINERY Id="11", Name="Winery">
+	<GO>
+		<EAST Dialogue = "You step back into the Corridor"/>
+		<NORTH Dialogue = "You step through the mirror into the Bathroom"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There is a huge TAPESTRY of a chateau and a vineyard on the wall"/>
+		<EAST Dialogue = "There is a door leading back to the corridor"/>
+		<NORTH Dialogue = "There is a giant mirror with no pane. You could step through it into the next room."/>
+		<WEST Dialogue = "There is a massive WINERACK with all kinds of bottles of wine in it"/>
+	</LOOK>
+</WINERY>
+<BATHROOM Id="12", Name="Bathroom">
+	<GO>
+		<EAST Dialogue = "You step back into the Corridor"/>
+		<SOUTH Dialogue = "You step through the mirror into the Winery"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There is a giant mirror with no pane. You could step through it into the next room."/>
+		<EAST Dialogue = "There is a door leading back to the corridor"/>
+		<NORTH Dialogue = "There is a complicated array of PIPES snaking around the wall and ceiling"/>
+		<WEST Dialogue = "There is a small barred window, too high to see through"/>
+	</LOOK>
+</BATHROOM>
+<PLAYROOM Id="13", Name="Playroom">
+	<GO>
+		<WEST Dialogue = "You step back into the Corridor"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There are chains hanging from the wall, just dangling short of the TILES on the floor"/>
+		<EAST Dialogue = "Across the TILES you can see an object on a pedestal in the far corner of the room"/>
+		<NORTH Dialogue = "There are chains hanging from the wall, just dangling short of the TILES on the floor"/>
+		<WEST Dialogue = "There is a door leading back to the corridor"/>
+	</LOOK>
+</PLAYROOM>
+<COURTYARD Id="14", Name="Courtyard">
+	<GO>
+		<WEST Dialogue = "You step back into the Corridor"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There are grape vines creeping down the tall iron fence and across the floor to the FONT in the centre of the courtyard"/>
+		<EAST Dialogue = "There are grape vines creeping down the tall iron fence and across the floor to the FONT in the centre of the courtyard"/>
+		<NORTH Dialogue = "There are grape vines creeping down the tall iron fence and across the floor to the FONT in the centre of the courtyard"/>
+		<WEST Dialogue = "There is a door leading back to the corridor"/>
+	</LOOK>
+</COURTYARD>

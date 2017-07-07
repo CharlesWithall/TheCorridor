@@ -17,3 +17,16 @@ void ItemsComponent::AddItemToInventory(Item* anItem)
 	anItem->Pickup();
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole("You picked up the %s", anItem->GetItemName());
 }
+
+const Item* ItemsComponent::GetItem(const ItemID& anItemID)
+{
+	for (Item* item : myInventory)
+	{
+		if (item->GetItemID() == anItemID)
+		{
+			return item;
+		}
+	}
+
+	return nullptr;
+}

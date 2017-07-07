@@ -79,6 +79,16 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			}
 
 			return new MoveCommand(direction);
+		case ROTATE:
+			LeftRight dial;
+
+			if (!ConvertStringToLeftRight(lastWord, dial))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
+				return NULL;
+			}
+
+			return new RotateCommand(dial);
 		default:
 			throw "Invalid action command generated";
 		}
@@ -126,6 +136,12 @@ bool InputHandler::ConvertStringToAction(const std::string& anInputString, Actio
 	if (CompareStringOrFirstLetter(anInputString, "MOVE") && aPlayer->GetCurrentRoom()->GetID() == aPlayer->GetMiniGameComponent()->GetChessBoardMiniGame()->GetLocation())
 	{
 		anAction = Action::MOVE;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "ROTATE") && aPlayer->GetCurrentRoom()->GetID() == aPlayer->GetMiniGameComponent()->GetWaterPipesMiniGame()->GetLocation())
+	{
+		anAction = Action::ROTATE;
 		return true;
 	}
 
@@ -184,6 +200,23 @@ bool InputHandler::ConvertStringToInt(const std::string& anInputString, int& aCa
 	}
 
 	return true;
+}
+
+bool InputHandler::ConvertStringToLeftRight(const std::string& anInputString, LeftRight& aDirection)
+{
+	if (CompareStringOrFirstLetter(anInputString, "LEFT"))
+	{
+		aDirection = LEFT;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "RIGHT"))
+	{
+		aDirection = RIGHT;
+		return true;
+	}
+
+	return false;
 }
 
 bool InputHandler::CompareStringOrFirstLetter(const std::string& aUserString, const std::string& aGameString)

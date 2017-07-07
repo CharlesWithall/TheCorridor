@@ -32,11 +32,12 @@ std::vector<Item*> DataRepository::LoadAllItems() const
 	for (XMLElement* element : myItemData->GetAllElementsWithAttribute(RoomIdentifier))
 	{
 		std::string itemName = element->GetAttributeByKey(Name);
+		std::string examineDialogue = element->GetAttributeByKey(Examine);
 		RoomID roomID = (RoomID)element->GetAttributeIDByKey(RoomIdentifier);
 		ItemID itemID = (ItemID)element->GetAttributeIDByKey(Id);
 		bool itemLocked = element->GetAttributeBoolByKey(ItemLocked);
 
-		Item* newItem = new Item(itemName, itemID, roomID, itemLocked);
+		Item* newItem = new Item(itemName, examineDialogue, itemID, roomID, itemLocked);
 		items.push_back(newItem);
 	}
 

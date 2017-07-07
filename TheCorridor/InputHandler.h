@@ -7,6 +7,7 @@
 #include "IgniteCommand.h"
 #include "MoveCommand.h"
 #include "LookCommand.h"
+#include "RotateCommand.h"
 #include "TakeCommand.h"
 #include "ServiceLocator.h"
 
@@ -22,6 +23,7 @@ private:
 	bool ConvertStringToDirection(const std::string& anInputString, Direction& aDirection);
 	bool ConvertStringToItem(const std::string& anInputString, ItemID& anItemID);
 	bool ConvertStringToInt(const std::string& anInputString, int& aCandleNumber);
+	bool ConvertStringToLeftRight(const std::string& anInputString, LeftRight& aDirection);
 	bool CompareStringOrFirstLetter(const std::string& aUserString, const std::string& aGameString);
 };
 
