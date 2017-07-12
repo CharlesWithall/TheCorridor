@@ -36,10 +36,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (currentCommand)
 		{
 			currentCommand->Execute(player);
+			delete currentCommand;
 		}		
 	}
-
-	delete currentCommand;
+	
 	delete player;
 	delete world;
 

@@ -13,9 +13,9 @@
 <PURPLE_KEY Name="PURPLE KEY", RoomID="14", Id="9", ItemLocked="TRUE" Examine="It's a purple key"/> // inside the font
 <RED_KEY Name="RED KEY", RoomID="8", Id="10", ItemLocked="TRUE" Examine="It's a red key"/> // behind the bookshelf
 <YELLOW_KEY Name="YELLOW KEY", RoomID="5", Id="11", ItemLocked="TRUE" Examine="It's a yellow key"/> // beneath the candelabra
-<MAP Name="MAP", RoomID="4", Id="12"/>
-<MAP Name="MAP", RoomID="1", Id="12"/>
-<MAP Name="MAP", RoomID="10", Id="12"/>
+<MAP Name="MAP", RoomID="4", Id="12",  Examine="#0XXXXXXXXXXXXXXXXX. X               X. X  / / / / / O  X. X  / / / O O O  X."/>
+<MAP Name="MAP", RoomID="1", Id="12",  Examine="#1X  / / / O / /  X. X  O O / O O /  X."/>
+<MAP Name="MAP", RoomID="10", Id="12", Examine="#2X  / O / / O /  X. X  / O O O O /  X. X               X. XXXXXXXXXXXXXXXXX."/>
 <MATCHBOX Name="MATCHBOX", RoomID="8", Id="13", ItemLocked="TRUE" Examine="It's a match box for lighting candles"/>
 <NOTE Name="NOTE", RoomID="11", Id="14"/>
 <NOTE Name="NOTE", RoomID="10", Id="14"/>

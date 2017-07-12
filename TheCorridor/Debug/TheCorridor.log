@@ -1,42 +1,9 @@
-﻿Build started 07/07/2017 16:35:39.
+﻿Build started 12/07/2017 13:57:41.
      1>Project "C:\Users\cwithall\documents\visual studio 2012\Projects\TheCorridor\TheCorridor\TheCorridor.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\TheCorridor.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ChandelierMiniGame.cpp ChessBoardMiniGame.cpp Command.cpp DataRepository.cpp Definitions.cpp ExamineCommand.cpp GoCommand.cpp IgniteCommand.cpp InputHandler.cpp Item.cpp ItemsComponent.cpp LookCommand.cpp MiniGameComponent.cpp MoveCommand.cpp Player.cpp Room.cpp RotateCommand.cpp ServiceLocator.cpp TakeCommand.cpp TheCorridor.cpp UNIT_TEST_DataRepository.cpp UNIT_TEST_XmlParser.cpp WaterPipesMiniGame.cpp World.cpp XMLElement.cpp XMLParser.cpp XMLParser2.cpp
-         ChandelierMiniGame.cpp
-     1>c:\users\cwithall\documents\visual studio 2012\projects\thecorridor\thecorridor\chandelierminigame.cpp(24): warning C4018: '>' : signed/unsigned mismatch
-         Generating Code...
-         Compiling...
-         XMLParser2.cpp
-         XMLParser.cpp
-         XMLElement.cpp
-         World.cpp
-         WaterPipesMiniGame.cpp
-         UNIT_TEST_XmlParser.cpp
-         UNIT_TEST_DataRepository.cpp
-         TheCorridor.cpp
-         TakeCommand.cpp
-         ServiceLocator.cpp
-         RotateCommand.cpp
-         Room.cpp
-         Player.cpp
-         MoveCommand.cpp
-         MiniGameComponent.cpp
-         LookCommand.cpp
-         ItemsComponent.cpp
-         Item.cpp
-         InputHandler.cpp
-     1>c:\users\cwithall\documents\visual studio 2012\projects\thecorridor\thecorridor\inputhandler.cpp(184): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\users\cwithall\documents\visual studio 2012\projects\thecorridor\thecorridor\inputhandler.cpp(226): warning C4018: '<' : signed/unsigned mismatch
-         IgniteCommand.cpp
-         Generating Code...
-         Compiling...
-         GoCommand.cpp
-         ExamineCommand.cpp
-         Definitions.cpp
-         DataRepository.cpp
-         Command.cpp
-         ChessBoardMiniGame.cpp
-         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\TheCorridor.pch" /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt ConsoleWriter.cpp
+         ConsoleWriter.cpp
+     1>c:\users\cwithall\documents\visual studio 2012\projects\thecorridor\thecorridor\consolewriter.cpp(88): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\cwithall\documents\visual studio 2012\Projects\TheCorridor\Debug\TheCorridor.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\cwithall\documents\visual studio 2012\Projects\TheCorridor\Debug\TheCorridor.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\cwithall\documents\visual studio 2012\Projects\TheCorridor\Debug\TheCorridor.lib" /MACHINE:X86 Debug\ChandelierMiniGame.obj
          Debug\ChessBoardMiniGame.obj
@@ -72,4 +39,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:20.15
+Time Elapsed 00:00:01.47

@@ -22,7 +22,7 @@ ChandelierMiniGame::~ChandelierMiniGame(void)
 void ChandelierMiniGame::LightCandle(int aCandleToToggle)
 {
 	if (aCandleToToggle < 1 || aCandleToToggle > myChandeliers.size())
-		throw "Candle selected is outside the bounds of the chandelier arrangement";
+		ServiceLocator::GetConsoleWriter().ReportError(ERROR_INVALID_CANDLE_SELECTION);
 
 	int numberOfCandlesToToggle = 3;
 

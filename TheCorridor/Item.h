@@ -13,15 +13,15 @@ public:
 	bool IsOwnedByPlayer() const { return myIsOwnedByPlayer; }
 	void Pickup() { myIsOwnedByPlayer = true; }
 	void Examine();
+	void CombineItems(const std::string& anAdditionalDialogue) { myDefaultExamineDialogue += anAdditionalDialogue; }
 
 	const RoomID GetRoomID() const { return myRoomID; }
 	const ItemID GetItemID() const { return myItemID; }
 	const std::string GetItemName() const { return myItemName; }
 	const std::string GetDialogue() const { return myDefaultExamineDialogue; }
 private:
-
 	const std::string myItemName;
-	const std::string myDefaultExamineDialogue;
+	std::string myDefaultExamineDialogue;
 
 	const ItemID myItemID;
 	const RoomID myRoomID;

@@ -13,7 +13,25 @@ ItemsComponent::~ItemsComponent(void)
 
 void ItemsComponent::AddItemToInventory(Item* anItem)
 {
-	myInventory.push_back(anItem);
+	Item* fragmentedItem = nullptr;
+
+	for (Item* inventoryItem : myInventory)
+	{
+		if (anItem->GetItemID() == inventoryItem->GetItemID())
+		{
+			fragmentedItem = inventoryItem;
+		}
+	}
+	
+	if (fragmentedItem)
+	{
+		fragmentedItem->CombineItems(anItem->GetDialogue());
+	}
+	else
+	{
+		myInventory.push_back(anItem);
+	}
+	
 	anItem->Pickup();
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole("You picked up the %s", anItem->GetItemName());
 }

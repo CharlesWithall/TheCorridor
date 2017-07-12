@@ -90,7 +90,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 
 			return new RotateCommand(dial);
 		default:
-			throw "Invalid action command generated";
+			ServiceLocator::GetConsoleWriter().ReportError(ERROR_INVALID_ACTION_COMMAND);
 		}
 	}	
 }

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "XMLElement.h"
 
-
 XMLElement::XMLElement(std::string aNodeName) : myNodeName(aNodeName)
 {
 }

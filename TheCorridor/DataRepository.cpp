@@ -8,7 +8,6 @@ DataRepository::DataRepository()
 	myItemData = parser.ParseItemData();
 }
 
-
 DataRepository::~DataRepository(void)
 {
 }
@@ -20,8 +19,6 @@ std::string DataRepository::GetDialogueText(const int& aRoomID, const Action& an
 
 void DataRepository::LoadAllRoomModels() const
 {
-	
-
 	//return myRoomData->GetDialogueText(aRoomID, anAction, aDirection);
 }
 

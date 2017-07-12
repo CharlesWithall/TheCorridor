@@ -2,8 +2,6 @@
 #include "WaterPipesMiniGame.h"
 
 #define MAX_DIAL_VALUE 9
-#define INVALID_DIAL_STRING "An invalid dial was selected"
-#define INVALID_DIAL_DIRECTION_STRING "An invalid dial turning direction was selected"
 #define LEFT_DIAL_COMPLETE 5
 #define RIGHT_DIAL_COMPLETE 4
 
@@ -24,7 +22,7 @@ void WaterPipesMiniGame::TurnDial(const LeftRight& aDialToTurn)
 	{
 		case LEFT: dialToTurn = &myLeftHandDial; break;
 		case RIGHT: dialToTurn = &myRightHandDial; break;
-		default: throw INVALID_DIAL_STRING;
+		default: ServiceLocator::GetConsoleWriter().ReportError(ERROR_INVALID_DIAL_STRING); throw;
 	}
 
 	if (*dialToTurn >= MAX_DIAL_VALUE)
