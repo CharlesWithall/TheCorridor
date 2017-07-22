@@ -2,35 +2,40 @@
 #include "Notifier.h"
 
 
-Notifier::Notifier(void)
+Notifier::Notifier()
 {
 }
 
 
-Notifier::~Notifier(void)
+Notifier::~Notifier()
 {
 }
 
-void Notifier::AddObserver(IObserver* anObserver)
+void Notifier::RegisterListener(IObserver* anObserver)
 {
-	myObservers.push_back(anObserver);
+	bool isObserverAlreadyRegistered = false;
+
+	for (std::vector<IObserver*>::iterator it = myObservers.begin(); it != myObservers.end(); ++it)
+	{
+		if (*it == anObserver)
+		{
+			isObserverAlreadyRegistered = true;
+		}
+	}
+
+	if (!isObserverAlreadyRegistered)
+	{
+		myObservers.push_back(anObserver);
+	}	
 }
 
-void Notifier::RemoveObserver(IObserver* anObserver)
-{
-	 for (int i = 0; i < myObservers.size(); ++i)
-	 {
-		 if (myObservers[i] == anObserver)
-		 {
-			 myObservers.erase(myObservers.begin() + i);
-		 }
-	 }
-}
-
-void Notifier::NotifyObservers(const ItemID& anItemID, const Action& anAction)
+void Notifier::UnregisterListener(IObserver* anObserver)
 {
 	for (std::vector<IObserver*>::iterator it = myObservers.begin(); it != myObservers.end(); ++it)
 	{
-		(*it)->onNotify(anItemID, anAction);
+		if (*it == anObserver)
+		{
+			myObservers.erase(it);
+		}
 	}
 }

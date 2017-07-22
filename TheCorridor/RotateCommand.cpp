@@ -20,7 +20,14 @@ void RotateCommand::Execute(Player* aPlayer)
 		{
 			if (waterPipesMiniGame->GetLocation() == aPlayer->GetCurrentRoom()->GetID())
 			{
-				waterPipesMiniGame->TurnDial(myDial);
+				if (aPlayer->GetItemsComponent()->GetItem(BUCKET))
+				{
+					waterPipesMiniGame->TurnDial(myDial);
+				}
+				else
+				{
+					ServiceLocator::GetConsoleWriter().WriteStringToConsole("You should find a bucket before you start trying to turn on the PIPES");
+				}
 			}
 		}
 	}	

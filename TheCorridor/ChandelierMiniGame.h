@@ -1,25 +1,22 @@
 #pragma once
 
-#include "Room.h"
-#include "ServiceLocator.h"
+#include "MiniGame.h"
 
 #include <array>
 
-class ChandelierMiniGame
+class ChandelierMiniGame : public MiniGame
 {
 public:
-	ChandelierMiniGame(Room* aRoom);
+	ChandelierMiniGame(const MiniGameID& aMiniGameID, Room* aRoom);
 	~ChandelierMiniGame();
+
 	void LightCandle(int aCandleToToggle);
-	const RoomID GetLocation() const { return myRoom->GetID(); }
-	const ItemID GetReward() const { return myReward; }
 	
+	virtual bool IsPuzzleComplete() const override;
+
 private:
 	void DisplayCandleArrangement() const;
-	bool IsPuzzleComplete();
 
 	std::array<bool, 9> myChandeliers;
-	Room* myRoom;
-	const ItemID myReward;
 };
 

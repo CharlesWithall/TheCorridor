@@ -1,13 +1,14 @@
 #pragma once
 #include "ServiceLocator.h"
 #include "Item.h"
-#include <map>
+#include <array>
 #include <vector>
 
 class Room
 {
+	friend class World;
 public:
-	Room(Room* aNorthRoom, Room* aWestRoom, Room* aSouthRoom, Room* anEastRoom, const RoomID& aRoomID);
+	Room(const std::string& aRoomName, const RoomID& aRoomID);
 	~Room(void);
 	void AddItem(Item* anItem) { myItems.push_back(anItem); }
 	void Enter();
@@ -20,12 +21,13 @@ public:
 private:
 	void Init();
 
+	const std::string myRoomName;
 	const RoomID myRoomId;
 	const std::string myEntryText;
 
-	std::map<Direction, Room*> myAdjacentRooms;
-	std::map<Direction, std::string> myLookDialogue;
-	std::map<Direction, std::string> myGoDialogue;
+	std::array<Room*, DIRECTION_COUNT> myAdjacentRooms;
+	std::array<std::string, DIRECTION_COUNT> myLookDialogue;
+	std::array<std::string, DIRECTION_COUNT> myGoDialogue;
 
 	std::vector<Item*> myItems;
 };

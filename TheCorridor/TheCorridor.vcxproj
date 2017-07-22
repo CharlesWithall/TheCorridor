@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,13 +19,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -79,55 +79,74 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AchievementComponent.h" />
+    <ClInclude Include="BookCaseMiniGame.h" />
     <ClInclude Include="ChandelierMiniGame.h" />
     <ClInclude Include="ChessBoardMiniGame.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="ConsoleWriter.h" />
     <ClInclude Include="DataRepository.h" />
     <ClInclude Include="Definitions.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="GoCommand.h" />
     <ClInclude Include="IgniteCommand.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="ExamineCommand.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemAcquiredEvent.h" />
     <ClInclude Include="ItemsComponent.h" />
     <ClInclude Include="LookCommand.h" />
+    <ClInclude Include="MiniGame.h" />
+    <ClInclude Include="MiniGameCompleteEvent.h" />
     <ClInclude Include="MiniGameComponent.h" />
     <ClInclude Include="MoveCommand.h" />
+    <ClInclude Include="Notifier.h" />
+    <ClInclude Include="OpenCommand.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PullCommand.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="ServiceLocator.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TakeCommand.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="RotateCommand.h" />
+    <ClInclude Include="TxtParser.h" />
     <ClInclude Include="UNIT_TEST.h" />
     <ClInclude Include="UNIT_TEST_DataRepository.h" />
     <ClInclude Include="UNIT_TEST_XmlParser.h" />
+    <ClInclude Include="UseCommand.h" />
     <ClInclude Include="WaterPipesMiniGame.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="XMLElement.h" />
-    <ClInclude Include="XMLParser.h" />
     <ClInclude Include="XMLParser2.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AchievementComponent.cpp" />
+    <ClCompile Include="BookCaseMiniGame.cpp" />
     <ClCompile Include="ChandelierMiniGame.cpp" />
     <ClCompile Include="ChessBoardMiniGame.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="ConsoleWriter.cpp" />
     <ClCompile Include="DataRepository.cpp" />
     <ClCompile Include="Definitions.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="GoCommand.cpp" />
     <ClCompile Include="IgniteCommand.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="ExamineCommand.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemAcquiredEvent.cpp" />
     <ClCompile Include="ItemsComponent.cpp" />
     <ClCompile Include="LookCommand.cpp" />
+    <ClCompile Include="MiniGame.cpp" />
+    <ClCompile Include="MiniGameCompleteEvent.cpp" />
     <ClCompile Include="MiniGameComponent.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
+    <ClCompile Include="Notifier.cpp" />
+    <ClCompile Include="OpenCommand.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PullCommand.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="ServiceLocator.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -137,12 +156,13 @@
     <ClCompile Include="TakeCommand.cpp" />
     <ClCompile Include="TheCorridor.cpp" />
     <ClCompile Include="RotateCommand.cpp" />
+    <ClCompile Include="TxtParser.cpp" />
     <ClCompile Include="UNIT_TEST_DataRepository.cpp" />
     <ClCompile Include="UNIT_TEST_XmlParser.cpp" />
+    <ClCompile Include="UseCommand.cpp" />
     <ClCompile Include="WaterPipesMiniGame.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="XMLElement.cpp" />
-    <ClCompile Include="XMLParser.cpp" />
     <ClCompile Include="XMLParser2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

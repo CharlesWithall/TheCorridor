@@ -1,14 +1,9 @@
 #include "stdafx.h"
 #include "Room.h"
 
-Room::Room(Room* aNorthRoom, Room* aWestRoom, Room* aSouthRoom, Room* anEastRoom, const RoomID& aRoomID) : myRoomId(aRoomID)
+Room::Room(const std::string& aRoomName, const RoomID& aRoomID) : myRoomName(aRoomName), myRoomId(aRoomID)
 {
 	Init();
-
-	myAdjacentRooms[NORTH] = aNorthRoom;
-	myAdjacentRooms[WEST] = aWestRoom;
-	myAdjacentRooms[SOUTH] = aSouthRoom;
-	myAdjacentRooms[EAST] = anEastRoom;
 }
 
 Room::~Room(void)
@@ -18,7 +13,9 @@ Room::~Room(void)
 
 void Room::Enter()
 {
-	//ServiceLocator::GetConsoleWriter().WriteStringToConsole(myEntryText);
+	std::wstring formattedRoomName(myRoomName.length(), L' ');
+	std::copy(myRoomName.begin(), myRoomName.end(), formattedRoomName.begin());
+	SetConsoleTitle(formattedRoomName.c_str());
 }
 
 void Room::Exit(const Direction& aDirection)
@@ -30,7 +27,7 @@ void Room::Init()
 {
 	DataRepository& data = ServiceLocator::GetData();
 	
-	for (int i = 0; i != ACTION_COUNT; ++i)
+	for (int i = 0; i != DIRECTION_COUNT; ++i)
 	{
 		Direction direction = static_cast<Direction>(i);
 		myLookDialogue[direction] = data.GetDialogueText(myRoomId, LOOK, direction);

@@ -49,6 +49,12 @@
     <Filter Include="Source Files\Player Components">
       <UniqueIdentifier>{5ee473e6-b975-44cb-adf6-e3ebcfacf6a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Events">
+      <UniqueIdentifier>{4ecd2d25-5559-4104-b26c-eb1919e4b926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Events">
+      <UniqueIdentifier>{6e362500-0fc4-4ea5-9316-b5b33ccdf1c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -96,20 +102,11 @@
     <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IObserver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="XMLParser.h">
-      <Filter>Header Files\Services\Data Access</Filter>
-    </ClInclude>
     <ClInclude Include="DataRepository.h">
       <Filter>Header Files\Services\Data Access</Filter>
     </ClInclude>
     <ClInclude Include="XMLElement.h">
       <Filter>Header Files\Services\Data Access</Filter>
-    </ClInclude>
-    <ClInclude Include="XMLParser2.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UNIT_TEST_XmlParser.h">
       <Filter>Header Files\Unit Tests</Filter>
@@ -145,6 +142,45 @@
       <Filter>Header Files\MiniGames</Filter>
     </ClInclude>
     <ClInclude Include="RotateCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
+    <ClInclude Include="BookCaseMiniGame.h">
+      <Filter>Header Files\MiniGames</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGameCompleteEvent.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="MiniGame.h">
+      <Filter>Header Files\MiniGames</Filter>
+    </ClInclude>
+    <ClInclude Include="Notifier.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="AchievementComponent.h">
+      <Filter>Header Files\Player Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemAcquiredEvent.h">
+      <Filter>Header Files\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLParser2.h">
+      <Filter>Header Files\Services\Data Access</Filter>
+    </ClInclude>
+    <ClInclude Include="PullCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
+    <ClInclude Include="UseCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
+    <ClInclude Include="TxtParser.h">
+      <Filter>Header Files\Services\Data Access</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCommand.h">
       <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
   </ItemGroup>
@@ -191,17 +227,11 @@
     <ClCompile Include="Item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="XMLParser.cpp">
-      <Filter>Source Files\Services\Data Access</Filter>
-    </ClCompile>
     <ClCompile Include="DataRepository.cpp">
       <Filter>Source Files\Services\Data Access</Filter>
     </ClCompile>
     <ClCompile Include="XMLElement.cpp">
       <Filter>Source Files\Services\Data Access</Filter>
-    </ClCompile>
-    <ClCompile Include="XMLParser2.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UNIT_TEST_XmlParser.cpp">
       <Filter>Source Files\Unit Tests</Filter>
@@ -234,6 +264,42 @@
       <Filter>Source Files\MiniGames</Filter>
     </ClCompile>
     <ClCompile Include="RotateCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="BookCaseMiniGame.cpp">
+      <Filter>Source Files\MiniGames</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGameCompleteEvent.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="MiniGame.cpp">
+      <Filter>Source Files\MiniGames</Filter>
+    </ClCompile>
+    <ClCompile Include="Notifier.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="AchievementComponent.cpp">
+      <Filter>Source Files\Player Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemAcquiredEvent.cpp">
+      <Filter>Source Files\Events</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLParser2.cpp">
+      <Filter>Source Files\Services\Data Access</Filter>
+    </ClCompile>
+    <ClCompile Include="UseCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="PullCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="TxtParser.cpp">
+      <Filter>Source Files\Services\Data Access</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCommand.cpp">
       <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,7 +2,7 @@
 #include "ChessBoardMiniGame.h"
 
 
-ChessBoardMiniGame::ChessBoardMiniGame(Room* aRoom) : currentPosition(0), myRoom(aRoom)
+ChessBoardMiniGame::ChessBoardMiniGame(const MiniGameID& aMiniGameID, Room* aRoom) : MiniGame(aMiniGameID, aRoom)
 {
 	pathToEnd[0] = EAST;
 	pathToEnd[1] = SOUTH;
@@ -27,7 +27,7 @@ ChessBoardMiniGame::~ChessBoardMiniGame(void)
 
 void ChessBoardMiniGame::MoveToPodium(const Direction& aDirection)
 {
-	if (currentPosition >= LENGTH_OF_PATH)
+	if (IsPuzzleComplete())
 	{
 		ServiceLocator::GetConsoleWriter().WriteStringToConsole("The traps in this room have deactivated - you can walk freely across the tiles");
 	}
@@ -37,6 +37,7 @@ void ChessBoardMiniGame::MoveToPodium(const Direction& aDirection)
 		ServiceLocator::GetConsoleWriter().WriteStringToConsole("You step onto the next tile...");
 		if (currentPosition == LENGTH_OF_PATH && myRoom->UnlockItem(GREEN_KEY))
 		{
+			PostMiniGameCompleteEvent();
 			ServiceLocator::GetConsoleWriter().WriteStringToConsole("You've reach the podium with the %s", myRoom->GetItem(GREEN_KEY)->GetItemName());
 		}
 	}

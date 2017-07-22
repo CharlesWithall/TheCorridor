@@ -18,6 +18,9 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 	Direction direction;
 	ItemID itemID;
 
+	if (HandleSpecialInputs(aPlayer, aUserInput))
+		return NULL;
+
 	GetFirstTwoWordsFromString(aUserInput, firstWord, lastWord);	
 
 	if (!ConvertStringToAction(firstWord, action, aPlayer))
@@ -84,13 +87,37 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 
 			if (!ConvertStringToLeftRight(lastWord, dial))
 			{
-				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIAL_DIRECTION_STRING);
 				return NULL;
 			}
 
 			return new RotateCommand(dial);
+		case PULL:
+			if (lastWord.length() != 1)
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_PULL_STRING);
+			}
+
+			return new PullCommand(toupper(lastWord[0]));
+		case USE:
+			if (!ConvertStringToItem(lastWord, itemID))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_ITEM_STRING);
+				return NULL;
+			}
+
+			return new UseCommand(itemID);
+		case OPEN:
+			if (!CompareStringOrFirstLetter(lastWord, "DOOR"))
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_COMMAND_STRING);
+				return NULL;
+			}
+
+			return new OpenCommand();
 		default:
 			ServiceLocator::GetConsoleWriter().ReportError(ERROR_INVALID_ACTION_COMMAND);
+			return nullptr;
 		}
 	}	
 }
@@ -142,6 +169,24 @@ bool InputHandler::ConvertStringToAction(const std::string& anInputString, Actio
 	if (CompareStringOrFirstLetter(anInputString, "ROTATE") && aPlayer->GetCurrentRoom()->GetID() == aPlayer->GetMiniGameComponent()->GetWaterPipesMiniGame()->GetLocation())
 	{
 		anAction = Action::ROTATE;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "PULL") && aPlayer->GetCurrentRoom()->GetID() == aPlayer->GetMiniGameComponent()->GetBookCaseMiniGame()->GetLocation())
+	{
+		anAction = Action::PULL;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "USE"))
+	{
+		anAction = Action::USE;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "OPEN") && aPlayer->GetCurrentRoom()->GetID() == CORRIDOR_SEVEN)
+	{
+		anAction = Action::OPEN;
 		return true;
 	}
 
@@ -242,4 +287,33 @@ bool InputHandler::CompareStringOrFirstLetter(const std::string& aUserString, co
 	}
 
 	return true;
+}
+
+bool InputHandler::HandleSpecialInputs(const Player* aPlayer, const std::string& anUserInput)
+{
+	if (CompareStringOrFirstLetter(anUserInput, "INVENTORY"))
+	{
+		const std::vector<Item*>& items = aPlayer->GetItemsComponent()->GetInventory();
+
+		for (Item* item : items)
+		{
+			ServiceLocator::GetConsoleWriter().WriteStringToConsole(item->GetItemName(), std::string(), COLOUR_SPECIAL);
+		}
+
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anUserInput, "HELP"))
+	{
+		std::vector<std::string> stringList = ServiceLocator::GetData().GetTutorialDialogue();
+
+		for (std::string line : stringList)
+		{
+			ServiceLocator::GetConsoleWriter().WriteTutorialToConsole(line);
+		}
+
+		return true;
+	}
+
+	return false;
 }

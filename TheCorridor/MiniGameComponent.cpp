@@ -4,14 +4,21 @@
 
 MiniGameComponent::MiniGameComponent(const World* aWorld)
 {
-	myChandelierMiniGame = new ChandelierMiniGame(aWorld->GetRoomByID(CORRIDOR_SIX));
-	myChessBoardMiniGame = new ChessBoardMiniGame(aWorld->GetRoomByID(PLAYROOM));
-	myWaterPipesMiniGame = new WaterPipesMiniGame(aWorld->GetRoomByID(BATHROOM));
-}
+	myBookCaseMiniGame = new BookCaseMiniGame(MG_BOOKS, aWorld->GetRoomByID(LIBRARY));
+	myChandelierMiniGame = new ChandelierMiniGame(MG_CHANDELIERS, aWorld->GetRoomByID(CORRIDOR_SIX));
+	myChessBoardMiniGame = new ChessBoardMiniGame(MG_CHESSBOARD, aWorld->GetRoomByID(PLAYROOM));
+	myWaterPipesMiniGame = new WaterPipesMiniGame(MG_WATERPIPES, aWorld->GetRoomByID(BATHROOM));
 
+	myMiniGames.push_back(myBookCaseMiniGame);
+	myMiniGames.push_back(myChandelierMiniGame);
+	myMiniGames.push_back(myChessBoardMiniGame);
+	myMiniGames.push_back(myWaterPipesMiniGame);
+}
 
 MiniGameComponent::~MiniGameComponent(void)
 {
+	delete myBookCaseMiniGame;
 	delete myChandelierMiniGame;
 	delete myChessBoardMiniGame;
+	delete myWaterPipesMiniGame;
 }

@@ -1,23 +1,22 @@
 #pragma once
 
+#include "MiniGame.h"
+
 #include <array>
-#include "Room.h"
-#include "ServiceLocator.h"
 
 #define LENGTH_OF_PATH 14
 
-class ChessBoardMiniGame
+class ChessBoardMiniGame : public MiniGame
 {
 public:
-	ChessBoardMiniGame(Room* aRoom);
+	ChessBoardMiniGame(const MiniGameID& aMiniGameID, Room* aRoom);
 	~ChessBoardMiniGame(void);
 
-
-	const RoomID GetLocation() const { return myRoom->GetID(); }
 	void MoveToPodium(const Direction& aDirection);
+
+	virtual bool IsPuzzleComplete() const override { return currentPosition >= LENGTH_OF_PATH; }
 private:
 	int currentPosition;
-	Room* myRoom;
 	std::array<Direction, LENGTH_OF_PATH> pathToEnd;
 };
 

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "MiniGameCompleteEvent.h"
 #include "World.h"
 #include <iostream>
 
@@ -38,22 +39,20 @@ void World::Init()
 
 void World::InitRooms()
 {
-	new ( myMap[CORRIDOR_ONE]	)	Room( myMap[CORRIDOR_TWO],		NULL,						NULL,						NULL,					CORRIDOR_ONE	);
-	new ( myMap[CORRIDOR_TWO]	)	Room( myMap[CORRIDOR_THREE],	myMap[DRAWING_ROOM],		myMap[CORRIDOR_ONE],		NULL,					CORRIDOR_TWO	);
-	new ( myMap[CORRIDOR_THREE] )	Room( myMap[CORRIDOR_FOUR],		NULL,						myMap[CORRIDOR_TWO],		myMap[LIBRARY],			CORRIDOR_THREE	);
-	new ( myMap[CORRIDOR_FOUR]	)	Room( NULL,						myMap[WINERY],				myMap[CORRIDOR_THREE],		myMap[TREASURY],		CORRIDOR_FOUR	);
-	new ( myMap[CORRIDOR_FIVE]	)	Room( myMap[CORRIDOR_SIX],		myMap[BATHROOM],			NULL,						myMap[PLAYROOM],		CORRIDOR_FIVE	);
-	new ( myMap[CORRIDOR_SIX]	)	Room( myMap[CORRIDOR_SEVEN],	NULL,						myMap[CORRIDOR_FIVE],		NULL,					CORRIDOR_SIX	);
-	new ( myMap[CORRIDOR_SEVEN] )	Room( NULL,						NULL,						myMap[CORRIDOR_SIX],		myMap[COURTYARD],		CORRIDOR_SEVEN	);
+	std::vector<RoomID> roomIDs = ServiceLocator::GetData().GetAllRoomIds();
 
-	new ( myMap[DRAWING_ROOM]	)	Room( NULL,						NULL,						NULL,						myMap[CORRIDOR_TWO],	DRAWING_ROOM	);
-	new ( myMap[LIBRARY]		)	Room( NULL,						myMap[CORRIDOR_THREE],		NULL,						myMap[SECRET_ROOM],		LIBRARY			);
-	new ( myMap[SECRET_ROOM]	)	Room( NULL,						myMap[LIBRARY],				NULL,						NULL,					SECRET_ROOM		);
-	new ( myMap[WINERY]			)	Room( myMap[BATHROOM],			NULL,						NULL,						myMap[CORRIDOR_FOUR],	WINERY			);
-	new ( myMap[TREASURY]		)	Room( NULL,						myMap[CORRIDOR_FOUR],		NULL,						NULL,					TREASURY		);
-	new ( myMap[BATHROOM]		)	Room( NULL,						NULL,						myMap[WINERY],				myMap[CORRIDOR_FIVE],	BATHROOM		);
-	new ( myMap[PLAYROOM]		)	Room( NULL,						myMap[CORRIDOR_FIVE],		NULL,						NULL,					PLAYROOM		);
-	new ( myMap[COURTYARD]		)	Room( NULL,						myMap[CORRIDOR_SEVEN],		NULL,						NULL,					COURTYARD		);
+	for (const RoomID roomID : roomIDs)
+	{
+		std::string roomName = ServiceLocator::GetData().GetRoomNameByID(roomID);
+		std::array<RoomID, 4> adjacentRooms = ServiceLocator::GetData().GetAllAdjacentRooms(roomID);
+
+		new (myMap[roomID]) Room(roomName, roomID);
+
+		myMap[roomID]->myAdjacentRooms[NORTH] = adjacentRooms[NORTH] ? myMap[adjacentRooms[NORTH]] : NULL;
+		myMap[roomID]->myAdjacentRooms[EAST] = adjacentRooms[EAST] ? myMap[adjacentRooms[EAST]] : NULL;
+		myMap[roomID]->myAdjacentRooms[SOUTH] = adjacentRooms[SOUTH] ? myMap[adjacentRooms[SOUTH]] : NULL;
+		myMap[roomID]->myAdjacentRooms[WEST] = adjacentRooms[WEST] ? myMap[adjacentRooms[WEST]] : NULL;
+	}
 }
 
 void World::InitItems()
@@ -86,4 +85,25 @@ Room* World::GetPlayerStartingPosition()
 {
 	return myMap[CORRIDOR_ONE];
 }
+
+void World::OnNotify(const Event* const anEvent)
+{
+	if (const MiniGameCompleteEvent* const miniGameComplete = static_cast<const MiniGameCompleteEvent* const>(anEvent))
+	{
+		if (miniGameComplete->myMiniGameID == MG_BOOKS)
+		{
+			myMap[LIBRARY]->myAdjacentRooms[EAST] = myMap[SECRET_ROOM];
+		}
+
+		if (miniGameComplete->myMiniGameID == MG_WATERPIPES)
+		{
+			if (Item* item = myMap[DRAWING_ROOM]->GetItem(BUCKET))
+			{
+				item->MakeUsable();
+			}
+		}
+	}
+}
+
+	
 

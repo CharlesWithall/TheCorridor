@@ -1,0 +1,26 @@
+All commands are composed of two words
+For example, USE BUCKET or EXAMINE BOOKCASE
+There are four main commands in the corridor
+GO, LOOK, TAKE and EXAMINE
+GO moves you in a direction
+LOOK tells you what is in a direction in the room you are in
+TAKE picks up an item you can access in the room you are in
+EXAMINE gives you more information about an item in the room you are in
+You can GO and LOOK either NORTH, EAST, SOUTH or WEST
+So to go north you type GO NORTH
+To look east you type LOOK EAST
+For all commands you can use just the first initial of the word
+For example G NORTH or L EAST
+For directions you can also use just the first initial of the wor
+For example GO N, LOOK E, or even G N, L EAST
+TAKE and EXAMINE must be followed by an item
+For example TAKE BUCKET OR EXAMINE PIPES or T BUCKET, E PIPES
+In 'The Corridor', words in bold indicate an item you can take or examine
+"There is a FIREPLACE in front of you" indicates that you can interact with FIREPLACE
+It doesn't matter if you type in upper or lower case
+Along the way you might encounter 'special' commands such as (I)GNITE, (M)OVE, (U)SE etc.
+You can view your INVENTORY by typing INVENTORY
+You can always EXAMINE the items in your INVENTORY
+You can view this again by typing HELP
+You open the giant oak door and shut it behind you...
+You stare down the corridor into the darkness...

@@ -7,12 +7,15 @@
 #include <vector>
 #include <windows.h>
 
-enum CONSOLE_MESSAGE_TYPE // Aligned with console colour codes: https://stackoverflow.com/questions/4053837/colorizing-text-in-the-console-with-c
+// Synchonise with colour codes: https://stackoverflow.com/questions/4053837/colorizing-text-in-the-console-with-c
+enum CONSOLE_MESSAGE_TYPE
 {
-	COLOUR_INPUT = 7,
-	COLOUR_SPECIAL = 10,
-	COLOUR_OUTPUT = 11,
-	COLOUR_ERROR = 12,
+	COLOUR_INPUT = 7, // White
+	COLOUR_SPECIAL = 10, // Green
+	COLOUR_OUTPUT = 11, // Cyan
+	COLOUR_ERROR = 12, // Red
+	COLOUR_TUTORIAL = 13, // Pink
+	COLOUR_ACHIEVEMENT = 14, // Yellow
 };
 
 class ConsoleWriter
@@ -21,6 +24,8 @@ class ConsoleWriter
 public:
 	~ConsoleWriter(void);
 	void WriteStringToConsole(const std::string& aStringToDisplay, const std::string& anArgument = std::string(), const CONSOLE_MESSAGE_TYPE aMessageType = COLOUR_OUTPUT);
+	void WriteAchievementToConsole(const std::string& aStringToDisplay, const std::string& anArgument = std::string()) { WriteStringToConsole(aStringToDisplay, anArgument, COLOUR_ACHIEVEMENT); }
+	void WriteTutorialToConsole(const std::string& aStringToDisplay, const std::string& anArgument = std::string()) { WriteStringToConsole(aStringToDisplay, anArgument, COLOUR_TUTORIAL); }
 	void ReportError(const std::string& aStringToDisplay, const std::string& anArgument = std::string()) { WriteStringToConsole(aStringToDisplay, anArgument, COLOUR_ERROR); throw; }
 private:
 	bool WriteSpecial(const std::string& aStringToDisplay);

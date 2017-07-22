@@ -1,21 +1,22 @@
 #pragma once
 
-#include "IObserver.h"
 #include <vector>
+
+#include "Event.h"
+
+class IObserver;
 
 class Notifier
 {
 public:
-	Notifier(void);
-	~Notifier(void);
+	Notifier();
+	~Notifier();
 
-	void AddObserver(IObserver* anObserver);
-	void RemoveObserver(IObserver* anObserver);
+	virtual void Notify(const Event* const anEvent) = 0;
+	void RegisterListener(IObserver* anObserver);
+	void UnregisterListener(IObserver* anObserver);
 
 protected:
-	void NotifyObservers(const ItemID& anItemID, const Action& anAction);
-
-private:
 	std::vector<IObserver*> myObservers;
 };
 

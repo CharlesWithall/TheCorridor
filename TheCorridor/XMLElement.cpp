@@ -46,6 +46,31 @@ XMLAttributeDefinition XMLElement::ConvertStringToAttributeDefinition(const std:
 		return Examine;
 	}
 
+	if (aString == "StartsUnusable")
+	{
+		return StartsUnusable;
+	}
+
+	if (aString == "North")
+	{
+		return North;
+	}
+
+	if (aString == "East")
+	{
+		return East;
+	}
+
+	if (aString == "South")
+	{
+		return South;
+	}
+
+	if (aString == "West")
+	{
+		return West;
+	}
+
 	throw "Invalid attribute set in XML File";
 }
 
@@ -65,6 +90,29 @@ std::string XMLElement::GetDialogueText( const int& aRoomId, const Action& anAct
 	}
 
 	return dialogueText;
+}
+
+XMLElement* XMLElement::GetElementById(const int& aRoomID) const
+{
+	for (XMLElement* element : myChildElements)
+	{
+		if (element->GetAttributeIDByKey(Id) == aRoomID)
+		{
+			return element;
+		}
+	}
+
+	return nullptr;
+}
+
+int XMLElement::GetAttributeIDByKey(const XMLAttributeDefinition& anAttributeDefinition)
+{ 
+	if (GetAttributeByKey(anAttributeDefinition) != std::string())
+	{
+		return std::stoi(GetAttributeByKey(anAttributeDefinition));
+	}
+	
+	return NULL;
 }
 
 std::vector<XMLElement*> XMLElement::GetAllElementsWithAttribute(const XMLAttributeDefinition& anAttributeDefinition)

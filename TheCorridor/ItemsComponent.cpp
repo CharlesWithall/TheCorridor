@@ -32,6 +32,7 @@ void ItemsComponent::AddItemToInventory(Item* anItem)
 		myInventory.push_back(anItem);
 	}
 	
+	PostItemAcquiredEvent(anItem->GetItemID());
 	anItem->Pickup();
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole("You picked up the %s", anItem->GetItemName());
 }
@@ -47,4 +48,19 @@ const Item* ItemsComponent::GetItem(const ItemID& anItemID)
 	}
 
 	return nullptr;
+}
+
+void ItemsComponent::Notify(const Event* const anEvent)
+{
+	for (IObserver* observer : myObservers)
+	{
+		observer->OnNotify(anEvent);
+	}
+}
+
+void ItemsComponent::PostItemAcquiredEvent(const ItemID& anItemID)
+{
+	ItemAcquiredEvent* itemAcquiredEvent = new ItemAcquiredEvent(anItemID);
+	Notify(itemAcquiredEvent);
+	delete itemAcquiredEvent;
 }

@@ -1,7 +1,9 @@
 #include "stdafx.h"
 #include "ChandelierMiniGame.h"
 
-ChandelierMiniGame::ChandelierMiniGame(Room* aRoom) : myRoom(aRoom), myReward(YELLOW_KEY)
+#define ITEM_REWARD_ID YELLOW_KEY
+
+ChandelierMiniGame::ChandelierMiniGame(const MiniGameID& aMiniGameID, Room* aRoom) : MiniGame(aMiniGameID, aRoom)
 {
 	myChandeliers[0] = true;
 	myChandeliers[1] = false;
@@ -44,8 +46,14 @@ void ChandelierMiniGame::LightCandle(int aCandleToToggle)
 	}
 
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole("You ignited a candle");
+
 	DisplayCandleArrangement();
-	IsPuzzleComplete();
+
+	if (IsPuzzleComplete() && myRoom->UnlockItem(ITEM_REWARD_ID))
+	{
+		PostMiniGameCompleteEvent();
+		ServiceLocator::GetConsoleWriter().WriteStringToConsole("A %s dropped out of the wall!", myRoom->GetItem(ITEM_REWARD_ID)->GetItemName());
+	}
 }
 
 void ChandelierMiniGame::DisplayCandleArrangement() const
@@ -61,7 +69,7 @@ void ChandelierMiniGame::DisplayCandleArrangement() const
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole(visualCandleArrangement);
 }
 
-bool ChandelierMiniGame::IsPuzzleComplete()
+bool ChandelierMiniGame::IsPuzzleComplete() const
 {
 	bool isPuzzleComplete = true;
 
@@ -72,11 +80,6 @@ bool ChandelierMiniGame::IsPuzzleComplete()
 			isPuzzleComplete = false;
 			break;
 		}
-	}
-
-	if (isPuzzleComplete && myRoom->UnlockItem(myReward))
-	{
-		ServiceLocator::GetConsoleWriter().WriteStringToConsole("A %s dropped out of the wall!", myRoom->GetItem(myReward)->GetItemName());
 	}
 
 	return isPuzzleComplete;

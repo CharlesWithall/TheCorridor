@@ -7,31 +7,37 @@
 <GOULAINE Name="GOULAINE", RoomID="11", Id="3" Examine="It's a bottle of wine with the label 'Chateau de Goulaine'"/>
 <RICASOLI Name="RICASOLI", RoomID="11", Id="4" Examine="It's a bottle of wine with the label 'Ricasoli'"/>
 <CODORNIU Name="CODORNIU", RoomID="11", Id="5" Examine="It's a bottle of wine with the label 'Codorniu'"/>
-<BUCKET Name="BUCKET", RoomID="7", Id="6" Examine="It's a metal bucket that could hold a lot of water"/>
+<BUCKET Name="BUCKET", RoomID="7", Id="6", StartsUnusable="TRUE" Examine="It's a metal bucket that could hold a lot of water"/>
 <BLUE_KEY Name="BLUE KEY", RoomID="7", Id="7", ItemLocked="TRUE" Examine="It's a blue key"/> // behind the fireplace
 <GREEN_KEY Name="GREEN KEY", RoomID="13", Id="8", ItemLocked="TRUE" Examine="It's a green key"/> // across the chessboard
 <PURPLE_KEY Name="PURPLE KEY", RoomID="14", Id="9", ItemLocked="TRUE" Examine="It's a purple key"/> // inside the font
-<RED_KEY Name="RED KEY", RoomID="8", Id="10", ItemLocked="TRUE" Examine="It's a red key"/> // behind the bookshelf
+<RED_KEY Name="RED KEY", RoomID="9", Id="10", Examine="It's a red key"/> // behind the bookshelf
 <YELLOW_KEY Name="YELLOW KEY", RoomID="5", Id="11", ItemLocked="TRUE" Examine="It's a yellow key"/> // beneath the candelabra
 <MAP Name="MAP", RoomID="4", Id="12",  Examine="#0XXXXXXXXXXXXXXXXX. X               X. X  / / / / / O  X. X  / / / O O O  X."/>
 <MAP Name="MAP", RoomID="1", Id="12",  Examine="#1X  / / / O / /  X. X  O O / O O /  X."/>
 <MAP Name="MAP", RoomID="10", Id="12", Examine="#2X  / O / / O /  X. X  / O O O O /  X. X               X. XXXXXXXXXXXXXXXXX."/>
-<MATCHBOX Name="MATCHBOX", RoomID="8", Id="13", ItemLocked="TRUE" Examine="It's a match box for lighting candles"/>
-<NOTE Name="NOTE", RoomID="11", Id="14"/>
-<NOTE Name="NOTE", RoomID="10", Id="14"/>
+<MATCHBOX Name="MATCHBOX", RoomID="8", Id="13", Examine="It's a match box for lighting candles"/>
+<NOTE Name="NOTE", RoomID="11", Id="14" Examine="#0XXXXXXXXXXXXX. X           X. X -Y-----Y- X. X --Y---Y-- X. X ---Y-Y--- X. X ----Y---- X. X ----Y---- X. X ----Y---- X. X ----Y---- X. X           X. XXXXXXXXXXXXX. "/>
+<NOTE Name="NOTE", RoomID="10", Id="14" Examine="#1XXXXXXXXXXXX. X          X. X -N----N- X. X -NN---N- X. X -N-N--N- X. X -N--N-N- X. X -N---NN- X. X -N----N- X. X          X. XXXXXXXXXXXX."/>
 <POKER Name="POKER", RoomID="7", Id="15" Examine="It's a poker with the word 'Goulaine' engraved on it"/>
 <STAFF Name="STAFF", RoomID="9", Id="16"/>
+<BLACK_KEY Name="BLACK KEY", RoomID="10", Id="17" Examine="It's just a pile of dust"/> // fake key!
 
 <!--Static Items-->
-<FIREPLACE Name="FIREPLACE", RoomID="7", Id="17", ItemLocked="TRUE" Examine="Behind the flames you see a BLUE KEY, but the fire is too hot to reach it. Sitting on the stone hearth is a POKER and a BUCKET."/>
-<PIPES Name="PIPES", RoomID="12", Id="18", ItemLocked="TRUE" Examine="There is an intricate array of water pipes."/>
-<TILES Name="TILES", RoomID="13", Id="19", ItemLocked="TRUE" Examine="There are tiles and shit!"/>
-<CANDELABRA Name="CANDELABRA", RoomID="5", Id="20", ItemLocked="TRUE" Examine="Dare is like candles and ting"/>
-<FONT Name="FONT", RoomID="14", Id="21", ItemLocked="TRUE" Examine="It's a stone FONT in the centre of the courtyard. The interior has purple stains as if it once held wine."/>
-<BOOKCASE Name="BOOKCASE", RoomID="8", Id="22", ItemLocked="TRUE" Examine="It's a large bookcase stretchin from ceiling to floor and wall to wall."/>
-<WINERACK Name="WINERACK", RoomID="11", Id="23", ItemLocked="TRUE" Examine="The WINERACK has many dusty bottles with different labels on them. Three vineyards standout to you: GOULAINE, RICASOLI and CODORNIU"/>
-<CHEST Name="CHEST", RoomID="10", Id="24", ItemLocked="TRUE" Examine="It's a beautifully ornate golden CHEST. Inside you see a BLACK KEY!"/>
-<BOX Name="BOX", RoomID="10", Id="25", ItemLocked="TRUE" Examine="It's a manky old BOX. Inside you see a crumpled NOTE and a torn piece of MAP"/>
-<TAPESTRY Name="TAPESTRY", RoomID="11", Id="26", ItemLocked="TRUE" Examine="It's a beautiful depiction of Southern France. You look behind the TAPESTRY and see a crumpled NOTE"/>
-<RUBBLE Name="RUBBLE", RoomID="4", Id="27", ItemLocked="TRUE" Examine="You search around the RUBBLE and see a torn piece of a MAP"/>
-<PAINTING Name="PAINTING", RoomID="1", Id="28", ItemLocked="TRUE" Examine="The painting shows two men fighting each other. You look behind the painting and see a torn piece of a MAP."/>
+<FIREPLACE Name="FIREPLACE", RoomID="7", Id="117", ItemLocked="TRUE" Examine="Behind the flames you see a BLUE KEY, but the fire is too hot to reach it. Sitting on the stone hearth is a POKER and a BUCKET. If you filled the BUCKET with water you could (U)SE it on the FIREPLACE ('USE BUCKET')"/>
+<PIPES Name="PIPES", RoomID="12", Id="118", ItemLocked="TRUE" Examine="There is an intricate array of water pipes with a plaque. It reads 'How many of Caravaggio's Characters?'. There are two dials on the front. The LEFT dial has a statuette of a man above it, the RIGHT dial a woman. You can (R)OTATE either one ('ROTATE LEFT')"/>
+<TILES Name="TILES", RoomID="13", Id="119", ItemLocked="TRUE" Examine="There are tiles on the floor arranged like a chessboard. You can (M)OVE across the tiles, NORTH, EAST, SOUTH and WEST ('MOVE EAST'). A map might help you navigate across it."/>
+<CANDELABRA Name="CANDELABRA", RoomID="5", Id="120", ItemLocked="TRUE" Examine="There is an elaborate array of candles in front of you numbered 1 - 9. Some are lit and some are not; you can try to (I)GNITE one ('IGNITE 3')"/>
+<FONT Name="FONT", RoomID="14", Id="121", ItemLocked="TRUE" Examine="It's a stone FONT in the centre of the courtyard. The interior has purple stains as if it once held wine. You could (U)SE some wine on the FONT ('USE {Name of Wine}')"/>
+<BOOKCASE Name="BOOKCASE", RoomID="8", Id="122", ItemLocked="TRUE" Examine="The BOOKCASE has labels from A-Z; it looks like two notes used to be pinned to the top. You could (P)ULL out a book from any section ('PULL Q')"/>
+<WINERACK Name="WINERACK", RoomID="11", Id="123", ItemLocked="TRUE" Examine="The WINERACK has many dusty bottles with different labels on them. Three vineyards standout to you: GOULAINE, RICASOLI and CODORNIU"/>
+<CHEST Name="CHEST", RoomID="10", Id="124", ItemLocked="TRUE" Examine="It's a beautifully ornate golden CHEST. Unfortunately, it's empty."/>
+<BOX Name="BOX", RoomID="10", Id="125", ItemLocked="TRUE" Examine="It's a manky old BOX. Inside you see a crumpled NOTE and a torn piece of MAP"/>
+<TAPESTRY Name="TAPESTRY", RoomID="11", Id="126", ItemLocked="TRUE" Examine="It's a beautiful depiction of Southern France. You look behind the TAPESTRY and see a crumpled NOTE"/>
+<RUBBLE Name="RUBBLE", RoomID="4", Id="127", ItemLocked="TRUE" Examine="You search around the RUBBLE and see a torn piece of a MAP"/>
+<PAINTING Name="PAINTING", RoomID="1", Id="128", ItemLocked="TRUE" Examine="You look behind the painting and see a torn piece of a MAP."/>
+<HERMIT Name="HERMIT", RoomID="9", Id="129", ItemLocked="TRUE" Examine="The HERMIT shouts some jibberish at you and then points at your feet. There's a RED KEY on the floor!"/>
+<JUDITH Name="JUDITH", RoomID="7", Id="130", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'Judith Beheading Holofernes'"/>
+<DAVID Name="DAVID", RoomID="7", Id="131", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'David with the Head of Goliath'"/>
+<SALOME Name="SALOME", RoomID="7", Id="132", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'Salome with the Head of John the Baptist'"/>
+<DOOR Name="DOOR", RoomID="6", Id="133", ItemLocked="TRUE" Examine="The five keyholes are blue, green, red, yellow and purple. Try and open the door? ('OPEN DOOR')"/>

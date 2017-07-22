@@ -1,22 +1,17 @@
 #pragma once
 
-#include "Room.h"
-#include "ServiceLocator.h"
+#include "MiniGame.h"
 
-class WaterPipesMiniGame
+class WaterPipesMiniGame : public MiniGame
 {
 public:
-	WaterPipesMiniGame(const Room* aRoom);
+	WaterPipesMiniGame(const MiniGameID& aMiniGameID, Room* aRoom);
 	~WaterPipesMiniGame(void);
 
-	bool IsPuzzleComplete();
+	virtual bool IsPuzzleComplete() const override;
 	void TurnDial(const LeftRight& aDialToTurn);
-
-	const RoomID GetLocation() const { return myRoom->GetID(); }
 private:
 	int myLeftHandDial;
 	int myRightHandDial;
-
-	const Room* myRoom;
 };
 
