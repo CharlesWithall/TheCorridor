@@ -17,7 +17,7 @@ void ItemsComponent::AddItemToInventory(Item* anItem)
 
 	for (Item* inventoryItem : myInventory)
 	{
-		if (anItem->GetItemID() == inventoryItem->GetItemID())
+		if (anItem->GetItemName() == inventoryItem->GetItemName())
 		{
 			fragmentedItem = inventoryItem;
 		}

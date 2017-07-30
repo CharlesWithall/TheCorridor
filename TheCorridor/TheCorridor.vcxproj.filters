@@ -183,6 +183,9 @@
     <ClInclude Include="OpenCommand.h">
       <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
+    <ClInclude Include="ItemBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -301,6 +304,9 @@
     </ClCompile>
     <ClCompile Include="OpenCommand.cpp">
       <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemBuilder.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

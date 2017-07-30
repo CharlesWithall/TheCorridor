@@ -24,7 +24,7 @@ XMLElement* XMLParser2::ParseDocument(const std::string& anXmlPath)
 
 		while(std::getline(myXmlDocument, myCurrentLine))
 		{
-			if (!IsComment())
+			if (!IsCommentOrEmptyLine())
 			{
 				SetCurrentNodeName();
 				myShouldCloseElementFlag = false;
@@ -117,12 +117,13 @@ void XMLParser2::SetCurrentNodeName()
 	myCurrentNodeName = myCurrentLine.substr(startIndex, stringLength);
 }
 
-bool XMLParser2::IsComment()
+bool XMLParser2::IsCommentOrEmptyLine()
 {
-	if (myCurrentLine.length() > 2 && myCurrentLine[0] == '<' && myCurrentLine[1] == '!')
-	{
+	if (myCurrentLine == std::string())
 		return true;
-	}
+
+	if (myCurrentLine.length() > 2 && myCurrentLine[0] == '<' && myCurrentLine[1] == '!')
+		return true;
 
 	return false;
 }

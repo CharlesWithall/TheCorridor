@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "DataRepository.h"
 #include "Item.h"
+#include "ItemBuilder.h"
 #include "Room.h"
 
 DataRepository::DataRepository()
@@ -14,9 +15,18 @@ DataRepository::~DataRepository(void)
 {
 }
 
-std::string DataRepository::GetDialogueText(const int& aRoomID, const Action& anAction, const Direction& aDirection ) const
+std::string DataRepository::GetDialogueText( const DataType& aDataType, const int& anID, const Action& anAction, const Direction& aDirection ) const
 {
-	return myRoomData->GetDialogueText(aRoomID, anAction, aDirection);
+	switch (aDataType)
+	{
+	case ITEM_DATA_TYPE:
+		return myItemData->GetElementById(anID)->GetAttributeByKey(Examine);
+	case ROOM_DATA_TYPE:
+		return myRoomData->GetDialogueText(anID, anAction, aDirection);
+	default:
+		return std::string();
+	}
+	
 }
 
 std::vector<RoomID> DataRepository::GetAllRoomIds() const
@@ -33,14 +43,40 @@ std::vector<RoomID> DataRepository::GetAllRoomIds() const
 	return roomIds;
 }
 
-std::string DataRepository::GetRoomNameByID(const RoomID& aRoomID) const
+std::string DataRepository::GetNameByID(const DataType& aDataType, const int& anID) const
 {
-	if (XMLElement* element = myRoomData->GetElementById(aRoomID))
+	XMLElement* dataToSearch = GetDataFromDataType(aDataType);
+
+	if (XMLElement* element = dataToSearch->GetElementById(anID))
 	{
 		return element->GetAttributeByKey(Name);
 	}
 
 	return std::string();
+}
+
+RoomID DataRepository::GetRoomIDByItemID(const ItemID& anItemID) const
+{
+	if (XMLElement* element = myItemData->GetElementById(anItemID))
+		return (RoomID)element->GetAttributeIDByKey(RoomIdentifier);
+
+	return INVALID_ROOM;
+}
+
+bool DataRepository::GetStartsLocked(const ItemID& anItemID) const
+{
+	if (XMLElement* element = myItemData->GetElementById(anItemID))
+		return element->GetAttributeBoolByKey(ItemLocked);
+
+	return false;
+}
+
+bool DataRepository::GetStartsUnusable(const ItemID& anItemID) const
+{
+	if (XMLElement* element = myItemData->GetElementById(anItemID))
+		return element->GetAttributeBoolByKey(StartsUnusable);
+
+	return false;
 }
 
 std::array<RoomID, 4> DataRepository::GetAllAdjacentRooms(const RoomID& aRoomID) const
@@ -58,6 +94,21 @@ std::array<RoomID, 4> DataRepository::GetAllAdjacentRooms(const RoomID& aRoomID)
 	return roomIDs;
 }
 
+
+std::vector<ItemID> DataRepository::GetAllItemIds() const
+{
+	std::vector<ItemID> itemIds;
+	std::vector<XMLElement*> itemData = myItemData->GetAllElementsWithAttribute(Id);
+
+	for (XMLElement* element : itemData)
+	{
+		const ItemID itemID = (ItemID)element->GetAttributeIDByKey(Id);
+		itemIds.push_back(itemID);
+	}
+
+	return itemIds;
+}
+
 std::vector<Item*> DataRepository::LoadAllItems() const
 {
 	std::vector<Item*> items;
@@ -65,15 +116,15 @@ std::vector<Item*> DataRepository::LoadAllItems() const
 
 	for (XMLElement* element : itemData)
 	{
-		std::string itemName = element->GetAttributeByKey(Name);
-		std::string examineDialogue = element->GetAttributeByKey(Examine);
-		RoomID roomID = (RoomID)element->GetAttributeIDByKey(RoomIdentifier);
-		ItemID itemID = (ItemID)element->GetAttributeIDByKey(Id);
-		bool itemLocked = element->GetAttributeBoolByKey(ItemLocked);
-		bool itemIsUnusable = element->GetAttributeBoolByKey(StartsUnusable);
+		ItemBuilder itemBuilder;
+		itemBuilder.setItemName(element->GetAttributeByKey(Name))
+					.setExamineDialogue(element->GetAttributeByKey(Examine))
+					.setRoomID((RoomID)element->GetAttributeIDByKey(RoomIdentifier))
+					.setItemID((ItemID)element->GetAttributeIDByKey(Id))
+					.setIsLocked(element->GetAttributeBoolByKey(ItemLocked))
+					.setIsUsable(element->GetAttributeBoolByKey(StartsUnusable));
 
-		Item* newItem = new Item(itemName, examineDialogue, itemID, roomID, itemLocked, !itemIsUnusable);
-		items.push_back(newItem);
+		items.push_back(itemBuilder.Build());
 	}
 
 	return items;
@@ -102,4 +153,17 @@ StringList DataRepository::GetTutorialDialogue()
 {
 	TxtParser txtParser;
 	return txtParser.ParseTxtFile(TUTORIAL_FILEPATH);
+}
+
+XMLElement* DataRepository::GetDataFromDataType(const DataType& aDataType) const
+{
+	switch (aDataType)
+	{
+	case ITEM_DATA_TYPE:
+		return myItemData;
+	case ROOM_DATA_TYPE:
+		return myRoomData;
+	default:
+		throw ("Invalid Data Type Selected");
+	}
 }

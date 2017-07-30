@@ -13,12 +13,12 @@
 <PURPLE_KEY Name="PURPLE KEY", RoomID="14", Id="9", ItemLocked="TRUE" Examine="It's a purple key"/> // inside the font
 <RED_KEY Name="RED KEY", RoomID="9", Id="10", Examine="It's a red key"/> // behind the bookshelf
 <YELLOW_KEY Name="YELLOW KEY", RoomID="5", Id="11", ItemLocked="TRUE" Examine="It's a yellow key"/> // beneath the candelabra
-<MAP Name="MAP", RoomID="4", Id="12",  Examine="#0XXXXXXXXXXXXXXXXX. X               X. X  / / / / / O  X. X  / / / O O O  X."/>
-<MAP Name="MAP", RoomID="1", Id="12",  Examine="#1X  / / / O / /  X. X  O O / O O /  X."/>
-<MAP Name="MAP", RoomID="10", Id="12", Examine="#2X  / O / / O /  X. X  / O O O O /  X. X               X. XXXXXXXXXXXXXXXXX."/>
+<MAP_1 Name="MAP", RoomID="4", Id="12",  Examine="#0XXXXXXXXXXXXXXXXX. X               X. X  / / / / / O  X. X  / / / O O O  X."/>
+<MAP_2 Name="MAP", RoomID="1", Id="12",  Examine="#1X  / / / O / /  X. X  O O / O O /  X."/>
+<MAP_3 Name="MAP", RoomID="10", Id="12", Examine="#2X  / O / / O /  X. X  / O O O O /  X. X               X. XXXXXXXXXXXXXXXXX."/>
 <MATCHBOX Name="MATCHBOX", RoomID="8", Id="13", Examine="It's a match box for lighting candles"/>
-<NOTE Name="NOTE", RoomID="11", Id="14" Examine="#0XXXXXXXXXXXXX. X           X. X -Y-----Y- X. X --Y---Y-- X. X ---Y-Y--- X. X ----Y---- X. X ----Y---- X. X ----Y---- X. X ----Y---- X. X           X. XXXXXXXXXXXXX. "/>
-<NOTE Name="NOTE", RoomID="10", Id="14" Examine="#1XXXXXXXXXXXX. X          X. X -N----N- X. X -NN---N- X. X -N-N--N- X. X -N--N-N- X. X -N---NN- X. X -N----N- X. X          X. XXXXXXXXXXXX."/>
+<NOTE_1 Name="NOTE", RoomID="11", Id="14" Examine="#0XXXXXXXXXXXXX. X           X. X -Y-----Y- X. X --Y---Y-- X. X ---Y-Y--- X. X ----Y---- X. X ----Y---- X. X ----Y---- X. X ----Y---- X. X           X. XXXXXXXXXXXXX. "/>
+<NOTE_2 Name="NOTE", RoomID="10", Id="14" Examine="#1XXXXXXXXXXXX. X          X. X -N----N- X. X -NN---N- X. X -N-N--N- X. X -N--N-N- X. X -N---NN- X. X -N----N- X. X          X. XXXXXXXXXXXX."/>
 <POKER Name="POKER", RoomID="7", Id="15" Examine="It's a poker with the word 'Goulaine' engraved on it"/>
 <STAFF Name="STAFF", RoomID="9", Id="16"/>
 <BLACK_KEY Name="BLACK KEY", RoomID="10", Id="17" Examine="It's just a pile of dust"/> // fake key!

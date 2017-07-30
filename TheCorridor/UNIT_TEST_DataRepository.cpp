@@ -21,7 +21,7 @@ void UNIT_TEST_DataRepository::RunTest()
 void UNIT_TEST_DataRepository::CheckDialogueGetter(const DataRepository& aDataRepository)
 {
 	std::string expected = "You step further down the Corridor";
-	std::string actual = aDataRepository.GetDialogueText(0, GO, NORTH);
+	std::string actual = aDataRepository.GetDialogueText(ROOM_DATA_TYPE, 0, GO, NORTH);
 
 	if (actual != expected)
 		ServiceLocator::GetConsoleWriter().WriteStringToConsole("The data repo has not found the correct dialogue, Expected: " + expected + " Actual: " + actual);

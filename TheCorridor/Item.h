@@ -4,8 +4,9 @@
 
 class Item
 {
+	friend class ItemBuilder;
+
 public:
-	Item(const std::string anItemName, const std::string anExamineDialogue, const ItemID anItemID, const RoomID aRoomID, bool isLocked = false, bool isUsable = true);
 	~Item(void);
 
 	void Unlock() { myIsLocked = false; }
@@ -22,6 +23,8 @@ public:
 	const std::string GetItemName() const { return myItemName; }
 	const std::string GetDialogue() const { return myDefaultExamineDialogue; }
 private:
+	Item(const std::string anItemName, const std::string anExamineDialogue, const ItemID anItemID, const RoomID aRoomID, bool isLocked, bool isUsable);
+
 	const std::string myItemName;
 	std::string myDefaultExamineDialogue;
 

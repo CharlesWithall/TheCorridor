@@ -95,6 +95,7 @@
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemAcquiredEvent.h" />
+    <ClInclude Include="ItemBuilder.h" />
     <ClInclude Include="ItemsComponent.h" />
     <ClInclude Include="LookCommand.h" />
     <ClInclude Include="MiniGame.h" />
@@ -137,6 +138,7 @@
     <ClCompile Include="ExamineCommand.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemAcquiredEvent.cpp" />
+    <ClCompile Include="ItemBuilder.cpp" />
     <ClCompile Include="ItemsComponent.cpp" />
     <ClCompile Include="LookCommand.cpp" />
     <ClCompile Include="MiniGame.cpp" />

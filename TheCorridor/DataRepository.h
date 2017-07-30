@@ -19,16 +19,22 @@ public:
 	
 	~DataRepository(void);
 
-	std::string GetDialogueText(const int& aRoomID, const Action& anAction, const Direction& aDirection ) const;
-	std::string GetRoomNameByID(const RoomID& aRoomID) const;
+	std::string GetDialogueText(const DataType& aDataType, const int& anID, const Action& anAction = INVALID_ACTION, const Direction& aDirection = INVALID_DIRECTION) const;
+	std::string GetNameByID(const DataType& aDataType, const int& anID) const;
 	std::array<RoomID, DIRECTION_COUNT> GetAllAdjacentRooms(const RoomID& aRoomID) const;
 	std::vector<RoomID> GetAllRoomIds() const;
+	std::vector<ItemID> GetAllItemIds() const;
 	std::vector<Item*> LoadAllItems() const;
+	RoomID GetRoomIDByItemID(const ItemID& anItemID) const;
 	ItemID GetItemIDByName(const std::string& anItemID) const;
+	bool GetStartsLocked(const ItemID& anItemID) const;
+	bool GetStartsUnusable(const ItemID& anItemID) const;
+
 	StringList GetTutorialDialogue();
 	StringList GetTitleArt();
 private:
-	DataRepository();
+	DataRepository();	
+	XMLElement* GetDataFromDataType(const DataType& aDataType) const;
 
 	XMLElement* myRoomData;
 	XMLElement* myItemData;

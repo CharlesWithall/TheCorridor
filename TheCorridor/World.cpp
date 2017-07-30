@@ -1,9 +1,11 @@
 #include "stdafx.h"
+#include "ItemBuilder.h"
 #include "MiniGameCompleteEvent.h"
 #include "World.h"
 #include <iostream>
 
-
+// Instantiate all the rooms in the game
+// Add all the items in the game to the rooms
 World::World(void)
 {
 	Init();
@@ -11,7 +13,7 @@ World::World(void)
 	InitItems();
 }
 
-
+// Clean up all items and all rooms
 World::~World(void)
 {
 	for (int i = 0; i < MAX_WORLD_SIZE; ++i)
@@ -27,6 +29,7 @@ World::~World(void)
 	}
 }
 
+// Allocate memory for each room into a pointer array
 void World::Init()
 {
 	myMap = new Room*[MAX_WORLD_SIZE];
@@ -37,13 +40,14 @@ void World::Init()
 	}
 }
 
+// Instantiate rooms
 void World::InitRooms()
 {
 	std::vector<RoomID> roomIDs = ServiceLocator::GetData().GetAllRoomIds();
 
 	for (const RoomID roomID : roomIDs)
 	{
-		std::string roomName = ServiceLocator::GetData().GetRoomNameByID(roomID);
+		std::string roomName = ServiceLocator::GetData().GetNameByID(ROOM_DATA_TYPE, roomID);
 		std::array<RoomID, 4> adjacentRooms = ServiceLocator::GetData().GetAllAdjacentRooms(roomID);
 
 		new (myMap[roomID]) Room(roomName, roomID);
@@ -55,6 +59,7 @@ void World::InitRooms()
 	}
 }
 
+// Instantiate items and add items to their rooms
 void World::InitItems()
 {
 	myItems = ServiceLocator::GetData().LoadAllItems();

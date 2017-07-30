@@ -22,32 +22,39 @@ void WriteTutorial();
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	RunUnitTests();
 	SetConsoleWindowSize();
 
-	InputHandler inputHandler;
-	std::string userInput;
-
+	// Create Core Game Objects
 	Command* currentCommand = nullptr;
 	World* world = new World();
 	Player* player = new Player(world);
 
+	// Write Pre Game Loop Introduction
 	WriteTitleArt();
 	WriteTutorial();
 
+	// Declare Input Handling Objects
+	InputHandler inputHandler;
+	std::string userInput;
+
+	// Start of Game Loop
 	while (!player->HasCompletedGame())
 	{
+		// Create object from player input {COMMAND PATTERN}
 		std::getline(std::cin, userInput);
 		currentCommand = inputHandler.HandleInput(player, userInput);
 
+		// Execute the player's command
 		if (currentCommand)
 		{
 			currentCommand->Execute(player);
 		}		
 	}
 
+	// Game Over
 	EndGame();
 	
+	// Clean Up
 	delete currentCommand;
 	delete player;
 	delete world;

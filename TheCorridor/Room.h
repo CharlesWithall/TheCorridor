@@ -9,7 +9,6 @@ class Room
 	friend class World;
 public:
 	Room(const std::string& aRoomName, const RoomID& aRoomID);
-	~Room(void);
 	void AddItem(Item* anItem) { myItems.push_back(anItem); }
 	void Enter();
 	void Exit(const Direction& aDirection);

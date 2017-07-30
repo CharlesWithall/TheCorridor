@@ -1,14 +1,11 @@
 #include "stdafx.h"
 #include "Room.h"
 
+// A Room that holds items and performs actions on entry and exit
+// The player's room is treated like a {STATE PATTERN}
 Room::Room(const std::string& aRoomName, const RoomID& aRoomID) : myRoomName(aRoomName), myRoomId(aRoomID)
 {
 	Init();
-}
-
-Room::~Room(void)
-{
-
 }
 
 void Room::Enter()
@@ -23,6 +20,7 @@ void Room::Exit(const Direction& aDirection)
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole(myGoDialogue[aDirection]);
 }
 
+// Gets Go and Look Dialogue from the Data Repository
 void Room::Init()
 {
 	DataRepository& data = ServiceLocator::GetData();
@@ -30,8 +28,8 @@ void Room::Init()
 	for (int i = 0; i != DIRECTION_COUNT; ++i)
 	{
 		Direction direction = static_cast<Direction>(i);
-		myLookDialogue[direction] = data.GetDialogueText(myRoomId, LOOK, direction);
-		myGoDialogue[direction] = data.GetDialogueText(myRoomId, GO, direction);
+		myLookDialogue[direction] = data.GetDialogueText(ROOM_DATA_TYPE, myRoomId, LOOK, direction);
+		myGoDialogue[direction] = data.GetDialogueText(ROOM_DATA_TYPE, myRoomId, GO, direction);
 	}
 }
 
