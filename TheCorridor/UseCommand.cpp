@@ -38,6 +38,7 @@ bool UseCommand::TryUnlockFont(Player* aPlayer, const RoomID& aCurrentRoomID)
 			if (aPlayer->GetCurrentRoom()->GetItem(PURPLE_KEY)->IsLocked())
 			{
 				aPlayer->GetCurrentRoom()->GetItem(PURPLE_KEY)->Unlock();
+				aPlayer->GetCurrentRoom()->GetItem(FONT)->SwitchDialogue();
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole("As you pour the wine into the FONT, it rumbles slightly. A stone hatch at the bottom opens revealing a PURPLE KEY!");
 			}
 			else
@@ -68,6 +69,8 @@ bool UseCommand::TryPutOutFireplace(Player* aPlayer, const RoomID& aCurrentRoomI
 				if (aPlayer->GetCurrentRoom()->GetItem(BLUE_KEY)->IsLocked())
 				{
 					aPlayer->GetCurrentRoom()->GetItem(BLUE_KEY)->Unlock();
+					aPlayer->GetCurrentRoom()->GetItem(BUCKET)->SwitchDialogue();
+					aPlayer->GetCurrentRoom()->GetItem(FIREPLACE)->SwitchDialogue();
 					ServiceLocator::GetConsoleWriter().WriteStringToConsole("You pour the water on the FIREPLACE, putting out the flames and revealing the BLUE KEY!");
 				}
 				else

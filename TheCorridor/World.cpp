@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ItemBuilder.h"
+#include "ItemAcquiredEvent.h"
 #include "MiniGameCompleteEvent.h"
 #include "World.h"
 #include <iostream>
@@ -18,7 +19,7 @@ World::~World(void)
 {
 	for (int i = 0; i < MAX_WORLD_SIZE; ++i)
 	{
-		delete myMap[i];
+		delete myMap[i];	
 	}
 
 	delete[] myMap;
@@ -52,10 +53,10 @@ void World::InitRooms()
 
 		new (myMap[roomID]) Room(roomName, roomID);
 
-		myMap[roomID]->myAdjacentRooms[NORTH] = adjacentRooms[NORTH] ? myMap[adjacentRooms[NORTH]] : NULL;
-		myMap[roomID]->myAdjacentRooms[EAST] = adjacentRooms[EAST] ? myMap[adjacentRooms[EAST]] : NULL;
-		myMap[roomID]->myAdjacentRooms[SOUTH] = adjacentRooms[SOUTH] ? myMap[adjacentRooms[SOUTH]] : NULL;
-		myMap[roomID]->myAdjacentRooms[WEST] = adjacentRooms[WEST] ? myMap[adjacentRooms[WEST]] : NULL;
+		myMap[roomID]->myAdjacentRooms[NORTH] = adjacentRooms[NORTH] != INVALID_ROOM ? myMap[adjacentRooms[NORTH]] : nullptr;
+		myMap[roomID]->myAdjacentRooms[EAST] = adjacentRooms[EAST] != INVALID_ROOM ? myMap[adjacentRooms[EAST]] : nullptr;
+		myMap[roomID]->myAdjacentRooms[SOUTH] = adjacentRooms[SOUTH] != INVALID_ROOM ? myMap[adjacentRooms[SOUTH]] : nullptr;
+		myMap[roomID]->myAdjacentRooms[WEST] = adjacentRooms[WEST] != INVALID_ROOM ? myMap[adjacentRooms[WEST]] : nullptr;
 	}
 }
 
@@ -105,8 +106,33 @@ void World::OnNotify(const Event* const anEvent)
 			if (Item* item = myMap[DRAWING_ROOM]->GetItem(BUCKET))
 			{
 				item->MakeUsable();
+				item->SwitchDialogue();
 			}
 		}
+	}
+
+	if (const ItemAcquiredEvent* const itemAcquired = static_cast<const ItemAcquiredEvent* const>(anEvent))
+	{
+		if (itemAcquired->myItemID == MATCHBOX)
+			myMap[LIBRARY]->GetItem(PURGATORIO)->SwitchDialogue();
+
+		if (itemAcquired->myItemID == RED_KEY)
+			myMap[SECRET_ROOM]->GetItem(HERMIT)->SwitchDialogue();
+
+		if (itemAcquired->myItemID == MAP && itemAcquired->myRoomID == CORRIDOR_TWO)
+			myMap[CORRIDOR_TWO]->GetItem(PAINTING)->SwitchDialogue();
+
+		if (itemAcquired->myItemID == MAP && itemAcquired->myRoomID == TREASURY)
+			myMap[TREASURY]->GetItem(CHEST)->SwitchDialogue();
+
+		if (itemAcquired->myItemID == MAP && itemAcquired->myRoomID == CORRIDOR_FIVE)
+			myMap[CORRIDOR_FIVE]->GetItem(RUBBLE)->SwitchDialogue();
+
+		if (itemAcquired->myItemID == NOTE && itemAcquired->myRoomID == WINERY)
+			myMap[WINERY]->GetItem(TAPESTRY)->SwitchDialogue();
+
+		if (itemAcquired->myItemID == NOTE && itemAcquired->myRoomID == TREASURY)
+			myMap[TREASURY]->GetItem(BOX)->SwitchDialogue();
 	}
 }
 

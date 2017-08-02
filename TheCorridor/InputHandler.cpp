@@ -26,7 +26,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 	if (!ConvertStringToAction(firstWord, action, aPlayer))
 	{
 		ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_COMMAND_STRING);
-		return NULL;
+		return nullptr;
 	}
 	else
 	{
@@ -36,15 +36,15 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!ConvertStringToDirection(lastWord, direction))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new GoCommand(direction);
 		case LOOK:
 			if (!ConvertStringToDirection(lastWord, direction))
 			{
-				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
-				return NULL;
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_LOOK_STRING);
+				return nullptr;
 			}
 
 			return new LookCommand(direction);
@@ -52,7 +52,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!ConvertStringToItem(lastWord, itemID))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_ITEM_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new TakeCommand(itemID);
@@ -60,7 +60,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!ConvertStringToItem(lastWord, itemID))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_ITEM_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new ExamineCommand(itemID);
@@ -70,7 +70,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!ConvertStringToInt(lastWord, candleNumber))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_CANDLE_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new IgniteCommand(candleNumber);
@@ -78,7 +78,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!ConvertStringToDirection(lastWord, direction))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIRECTION_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new MoveCommand(direction);
@@ -88,7 +88,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!ConvertStringToLeftRight(lastWord, dial))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_DIAL_DIRECTION_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new RotateCommand(dial);
@@ -96,6 +96,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (lastWord.length() != 1)
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_PULL_STRING);
+				return nullptr;
 			}
 
 			return new PullCommand(toupper(lastWord[0]));
@@ -103,7 +104,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!ConvertStringToItem(lastWord, itemID))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_ITEM_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new UseCommand(itemID);
@@ -111,7 +112,7 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			if (!CompareStringOrFirstLetter(lastWord, "DOOR"))
 			{
 				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_COMMAND_STRING);
-				return NULL;
+				return nullptr;
 			}
 
 			return new OpenCommand();

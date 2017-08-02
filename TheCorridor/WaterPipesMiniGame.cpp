@@ -16,6 +16,12 @@ WaterPipesMiniGame::~WaterPipesMiniGame(void)
 
 void WaterPipesMiniGame::TurnDial(const LeftRight& aDialToTurn)
 {
+	if (IsPuzzleComplete())
+	{
+		ServiceLocator::GetConsoleWriter().WriteStringToConsole("The dials have gone stiff. You can't turn them any more. There is water gushing from the pipes.");
+		return;
+	}
+
 	int* dialToTurn;
 
 	switch (aDialToTurn)

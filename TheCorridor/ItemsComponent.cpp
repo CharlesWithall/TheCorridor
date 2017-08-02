@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ItemsComponent.h"
+#include "Player.h"
 
 
 ItemsComponent::ItemsComponent(void)
@@ -11,7 +12,7 @@ ItemsComponent::~ItemsComponent(void)
 {
 }
 
-void ItemsComponent::AddItemToInventory(Item* anItem)
+void ItemsComponent::AddItemToInventory(Player* aPlayer, Item* anItem)
 {
 	Item* fragmentedItem = nullptr;
 
@@ -32,7 +33,7 @@ void ItemsComponent::AddItemToInventory(Item* anItem)
 		myInventory.push_back(anItem);
 	}
 	
-	PostItemAcquiredEvent(anItem->GetItemID());
+	PostItemAcquiredEvent(anItem->GetItemID(), aPlayer->GetCurrentRoom()->GetID());
 	anItem->Pickup();
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole("You picked up the %s", anItem->GetItemName());
 }
@@ -58,9 +59,9 @@ void ItemsComponent::Notify(const Event* const anEvent)
 	}
 }
 
-void ItemsComponent::PostItemAcquiredEvent(const ItemID& anItemID)
+void ItemsComponent::PostItemAcquiredEvent(const ItemID& anItemID, const RoomID& aRoomID)
 {
-	ItemAcquiredEvent* itemAcquiredEvent = new ItemAcquiredEvent(anItemID);
+	ItemAcquiredEvent* itemAcquiredEvent = new ItemAcquiredEvent(anItemID, aRoomID);
 	Notify(itemAcquiredEvent);
 	delete itemAcquiredEvent;
 }

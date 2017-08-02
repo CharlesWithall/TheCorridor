@@ -27,6 +27,7 @@ void BookCaseMiniGame::RemoveBook(const char& bookToRemove)
 		if ((bookToRemove == CORRECT_BOOK_SELECTION_ONE || bookToRemove == CORRECT_BOOK_SELECTION_TWO) && bookToRemove != myFirstSelectedBook)
 		{
 			PostMiniGameCompleteEvent();
+			myRoom->GetItem(BOOKCASE)->SwitchDialogue();
 			ServiceLocator::GetConsoleWriter().WriteStringToConsole("You pull out the second book and hear a click. The bookcase slides aside to reveal a Secret Room!");
 			myBookCaseIsOpen = true;
 			return;

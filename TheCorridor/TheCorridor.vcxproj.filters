@@ -305,8 +305,5 @@
     <ClCompile Include="OpenCommand.cpp">
       <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
-    <ClCompile Include="ItemBuilder.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>

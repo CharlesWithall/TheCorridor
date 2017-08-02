@@ -11,8 +11,8 @@ So to go north you type GO NORTH
 To look east you type LOOK EAST
 For all commands you can use just the first initial of the word
 For example G NORTH or L EAST
-For directions you can also use just the first initial of the wor
-For example GO N, LOOK E, or even G N, L EAST
+For directions you can also use just the first initial of the word
+For example GO N, LOOK E, or even G N, L E
 TAKE and EXAMINE must be followed by an item
 For example TAKE BUCKET OR EXAMINE PIPES or T BUCKET, E PIPES
 In 'The Corridor', words in bold indicate an item you can take or examine
@@ -21,6 +21,7 @@ It doesn't matter if you type in upper or lower case
 Along the way you might encounter 'special' commands such as (I)GNITE, (M)OVE, (U)SE etc.
 You can view your INVENTORY by typing INVENTORY
 You can always EXAMINE the items in your INVENTORY
-You can view this again by typing HELP
+You can see the room you are currently in in the window header above
+You can view this tutorial again by typing HELP
 You open the giant oak door and shut it behind you...
 You stare down the corridor into the darkness...

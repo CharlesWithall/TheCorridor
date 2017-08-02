@@ -31,6 +31,7 @@ void Player::RegisterListeners()
 	}
 
 	myAchievements->RegisterAsListener(myItems);
+	myWorld->RegisterAsListener(myItems);
 }
 
 int Player::GetNumberOfKeysAcquired() const

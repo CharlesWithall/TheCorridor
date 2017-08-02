@@ -13,12 +13,22 @@ ServiceLocator::ServiceLocator(void)
 
 ServiceLocator::~ServiceLocator(void)
 {
-	if (theConsoleWriterInstance != NULL)
+	
+}
+
+void ServiceLocator::DeleteServices()
+{
+	if (theConsoleWriterInstance)
 	{
 		delete theConsoleWriterInstance;
 	}
 
-	if (theDefinitionsInstance != NULL)
+	if (theDefinitionsInstance)
+	{
+		delete theDefinitionsInstance;
+	}
+
+	if (theDataInstance)
 	{
 		delete theDefinitionsInstance;
 	}
@@ -26,7 +36,7 @@ ServiceLocator::~ServiceLocator(void)
 
 ConsoleWriter& ServiceLocator::GetConsoleWriter()
 {
-	if (theConsoleWriterInstance == NULL)
+	if (!theConsoleWriterInstance)
 	{
 		theConsoleWriterInstance = new ConsoleWriter();
 	}
@@ -35,7 +45,7 @@ ConsoleWriter& ServiceLocator::GetConsoleWriter()
 
 Definitions& ServiceLocator::GetDefinitions()
 {
-	if (theDefinitionsInstance == NULL)
+	if (!theDefinitionsInstance)
 	{
 		theDefinitionsInstance = new Definitions();
 	}
@@ -44,7 +54,7 @@ Definitions& ServiceLocator::GetDefinitions()
 
 DataRepository& ServiceLocator::GetData()
 {
-	if (theDataInstance == NULL)
+	if (!theDataInstance)
 	{
 		theDataInstance = new DataRepository();
 	}

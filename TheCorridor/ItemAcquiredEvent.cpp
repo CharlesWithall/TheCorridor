@@ -2,7 +2,7 @@
 #include "ItemAcquiredEvent.h"
 
 
-ItemAcquiredEvent::ItemAcquiredEvent(const ItemID& anItemID) : myItemID(anItemID)
+ItemAcquiredEvent::ItemAcquiredEvent(const ItemID& anItemID, const RoomID& aRoomID) : myItemID(anItemID), myRoomID(aRoomID)
 {
 }
 

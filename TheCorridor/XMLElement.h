@@ -6,6 +6,8 @@
 #include <map>
 #include <string>
 
+enum XMLAttributeDefinition { Id, Name, Dialogue, RoomIdentifier, ItemLocked, StartsUnusable, Examine, PostExamine, North, South, East, West };
+
 class XMLElement
 {
 public:

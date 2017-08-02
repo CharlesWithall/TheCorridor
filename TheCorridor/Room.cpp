@@ -33,7 +33,7 @@ void Room::Init()
 	}
 }
 
-void Room::Look(const Direction& aDirection)
+void Room::Look(const Direction& aDirection) const
 {
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole(myLookDialogue[aDirection]);
 }
@@ -43,7 +43,7 @@ Room* Room::GetAdjacentRoom(const Direction& aDirection)
 	return myAdjacentRooms[aDirection];
 }
 
-Item* Room::GetItem(const ItemID& anItemID)
+Item* Room::GetItem(const ItemID& anItemID) const
 {
 	for (Item* item : myItems)
 	{

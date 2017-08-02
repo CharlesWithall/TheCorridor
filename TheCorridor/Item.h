@@ -17,16 +17,18 @@ public:
 	void MakeUsable() { myIsUsable = true; }
 	void MakeUnusable() { myIsUsable = false; }
 	void CombineItems(const std::string& anAdditionalDialogue) { myDefaultExamineDialogue += anAdditionalDialogue; }
+	void SwitchDialogue();
 
 	const RoomID GetRoomID() const { return myRoomID; }
 	const ItemID GetItemID() const { return myItemID; }
 	const std::string GetItemName() const { return myItemName; }
 	const std::string GetDialogue() const { return myDefaultExamineDialogue; }
 private:
-	Item(const std::string anItemName, const std::string anExamineDialogue, const ItemID anItemID, const RoomID aRoomID, bool isLocked, bool isUsable);
+	Item(const std::string anItemName, const std::string anExamineDialogue, const std::string anAfterUseExamineDialogue, const ItemID anItemID, const RoomID aRoomID, bool isLocked, bool isUsable);
 
 	const std::string myItemName;
 	std::string myDefaultExamineDialogue;
+	std::string myAfterUseExamineDialogue;
 
 	const ItemID myItemID;
 	const RoomID myRoomID;

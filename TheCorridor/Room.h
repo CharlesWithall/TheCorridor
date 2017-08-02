@@ -12,10 +12,10 @@ public:
 	void AddItem(Item* anItem) { myItems.push_back(anItem); }
 	void Enter();
 	void Exit(const Direction& aDirection);
-	void Look(const Direction& aDirection);
+	void Look(const Direction& aDirection) const;
 	Room* GetAdjacentRoom(const Direction& aDirection);
 	const RoomID& GetID() const { return myRoomId; }
-	Item* GetItem(const ItemID& anItemID);
+	Item* GetItem(const ItemID& anItemID) const;
 	bool UnlockItem(const ItemID& anItemID);
 private:
 	void Init();

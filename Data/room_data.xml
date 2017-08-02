@@ -99,7 +99,7 @@
 <LIBRARY Id="8", Name="Library" West="2">
 	<GO>
 		<WEST Dialogue = "You step back into the Corridor"/>
-		<EAST Dialogue = "You step behind the BOOKCASE into a secret room"/>
+		<EAST Dialogue = "You step behind the bookcase into a secret room"/>
 	</GO>
 	<LOOK>
 		<SOUTH Dialogue = "There is a cobblestone wall"/>

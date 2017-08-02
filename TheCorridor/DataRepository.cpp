@@ -82,13 +82,14 @@ bool DataRepository::GetStartsUnusable(const ItemID& anItemID) const
 std::array<RoomID, 4> DataRepository::GetAllAdjacentRooms(const RoomID& aRoomID) const
 {
 	std::array<RoomID, 4> roomIDs;
+	roomIDs.fill(INVALID_ROOM);
 
 	if (XMLElement* element = myRoomData->GetElementById(aRoomID))
 	{
-		roomIDs[NORTH] = (RoomID)element->GetAttributeIDByKey(North);
-		roomIDs[EAST] = (RoomID)element->GetAttributeIDByKey(East);
-		roomIDs[SOUTH] = (RoomID)element->GetAttributeIDByKey(South);
-		roomIDs[WEST] = (RoomID)element->GetAttributeIDByKey(West);
+		roomIDs[NORTH] = element->GetAttributeIDByKey(North) >= 0 ? (RoomID)element->GetAttributeIDByKey(North) : INVALID_ROOM;
+		roomIDs[EAST] = element->GetAttributeIDByKey(East) >= 0 ? (RoomID)element->GetAttributeIDByKey(East) : INVALID_ROOM;
+		roomIDs[SOUTH] = element->GetAttributeIDByKey(South) >= 0 ? (RoomID)element->GetAttributeIDByKey(South) : INVALID_ROOM;
+		roomIDs[WEST] = element->GetAttributeIDByKey(West) >= 0 ? (RoomID)element->GetAttributeIDByKey(West) : INVALID_ROOM;
 	}
 
 	return roomIDs;
@@ -119,10 +120,11 @@ std::vector<Item*> DataRepository::LoadAllItems() const
 		ItemBuilder itemBuilder;
 		itemBuilder.setItemName(element->GetAttributeByKey(Name))
 					.setExamineDialogue(element->GetAttributeByKey(Examine))
+					.setAfterUseExamineDialogue(element->GetAttributeByKey(PostExamine))
 					.setRoomID((RoomID)element->GetAttributeIDByKey(RoomIdentifier))
 					.setItemID((ItemID)element->GetAttributeIDByKey(Id))
 					.setIsLocked(element->GetAttributeBoolByKey(ItemLocked))
-					.setIsUsable(element->GetAttributeBoolByKey(StartsUnusable));
+					.setIsUsable(!element->GetAttributeBoolByKey(StartsUnusable));
 
 		items.push_back(itemBuilder.Build());
 	}

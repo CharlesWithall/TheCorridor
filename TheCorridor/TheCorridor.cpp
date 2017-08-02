@@ -36,6 +36,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	// Declare Input Handling Objects
 	InputHandler inputHandler;
 	std::string userInput;
+	bool hasFirstCommandBeenSuccessfullyExecuted = false;
 
 	// Start of Game Loop
 	while (!player->HasCompletedGame())
@@ -48,13 +49,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (currentCommand)
 		{
 			currentCommand->Execute(player);
-		}		
+			hasFirstCommandBeenSuccessfullyExecuted = true;
+		}
+
+		if (!hasFirstCommandBeenSuccessfullyExecuted)
+			ServiceLocator::GetConsoleWriter().WriteStringToConsole(FIRST_MOVE_HINT_STRING);
 	}
 
 	// Game Over
 	EndGame();
 	
 	// Clean Up
+	ServiceLocator::DeleteServices();
 	delete currentCommand;
 	delete player;
 	delete world;

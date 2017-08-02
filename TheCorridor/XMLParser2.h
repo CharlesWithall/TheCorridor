@@ -5,7 +5,6 @@
 #include <stack>
 #include <fstream>
 #include <iostream>
-#include <map>
 
 #define ROOM_DATA "..\\Data\\room_data.xml"
 #define ITEM_DATA "..\\Data\\item_data.xml"
@@ -34,7 +33,6 @@ private:
 	void AddAllAttributesToElement(XMLElement* anXmlElement);
 	void AddElementToParsedDocument(XMLElement* anXmlElement);
 	void SetCurrentNodeName();
-	void WriteAttributesToElement();
 
 	void CloseElement();
 	bool IsOpeningBracket();

@@ -138,7 +138,6 @@
     <ClCompile Include="ExamineCommand.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemAcquiredEvent.cpp" />
-    <ClCompile Include="ItemBuilder.cpp" />
     <ClCompile Include="ItemsComponent.cpp" />
     <ClCompile Include="LookCommand.cpp" />
     <ClCompile Include="MiniGame.cpp" />

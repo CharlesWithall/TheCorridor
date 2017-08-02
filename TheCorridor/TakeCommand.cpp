@@ -24,7 +24,7 @@ void TakeCommand::Execute(Player* aPlayer)
 		}
 		else if (ItemsComponent* itemsComponent = aPlayer->GetItemsComponent())
 		{
-			itemsComponent->AddItemToInventory(takenItem);
+			itemsComponent->AddItemToInventory(aPlayer, takenItem);
 		}
 	}
 	else

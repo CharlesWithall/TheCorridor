@@ -7,6 +7,8 @@
 #include "ServiceLocator.h"
 #include <vector>
 
+class Player;
+
 class ItemsComponent : public Notifier
 {
 public:
@@ -15,11 +17,11 @@ public:
 
 	virtual void Notify(const Event* const anEvent) override;
 
-	void AddItemToInventory(Item* anItem);
+	void AddItemToInventory(Player* aPlayer, Item* anItem);
 	std::vector<Item*> GetInventory() const { return myInventory; }
 	const Item* GetItem(const ItemID& anItemID);
 private:
-	void PostItemAcquiredEvent(const ItemID& anItemID);
+	void PostItemAcquiredEvent(const ItemID& anItemID, const RoomID& aRoomID);
 	std::vector<Item*> myInventory;
 };
 

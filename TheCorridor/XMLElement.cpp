@@ -14,62 +14,44 @@ XMLElement::~XMLElement(void)
 	}
 }
 
+//Keep Sync'd with XMLAttributeDefinition (XmlElement.h)
 XMLAttributeDefinition XMLElement::ConvertStringToAttributeDefinition(const std::string& aString)
 {
 	if (aString == "Id")
-	{
 		return Id;
-	}
 
 	if (aString == "Name")
-	{
 		return Name;
-	}
 
 	if (aString == "Dialogue")
-	{
 		return Dialogue;
-	}
 
 	if (aString == "RoomID")
-	{
 		return RoomIdentifier;
-	}
 
 	if (aString == "ItemLocked")
-	{
 		return ItemLocked;
-	}
 
 	if (aString == "Examine")
-	{
 		return Examine;
-	}
+
+	if (aString == "PostExamine")
+		return PostExamine;
 
 	if (aString == "StartsUnusable")
-	{
 		return StartsUnusable;
-	}
 
 	if (aString == "North")
-	{
 		return North;
-	}
 
 	if (aString == "East")
-	{
 		return East;
-	}
 
 	if (aString == "South")
-	{
 		return South;
-	}
 
 	if (aString == "West")
-	{
 		return West;
-	}
 
 	throw "Invalid attribute set in XML File";
 }
@@ -112,7 +94,7 @@ int XMLElement::GetAttributeIDByKey(const XMLAttributeDefinition& anAttributeDef
 		return std::stoi(GetAttributeByKey(anAttributeDefinition));
 	}
 	
-	return NULL;
+	return -1;
 }
 
 std::vector<XMLElement*> XMLElement::GetAllElementsWithAttribute(const XMLAttributeDefinition& anAttributeDefinition)
