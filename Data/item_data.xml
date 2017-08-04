@@ -2,7 +2,7 @@
 
 <!--Pickupable Items-->
 <INFERNO Name="INFERNO", RoomID="8", Id="0" Examine="You flip through the pages. It's just a book."/>
-<PURGATORIO Name="PURGATORIO", RoomID="8", Id="1" Examine="You flip through the pages. Hidden inside you find a MATCHBOX!" PostExamine="You flip through the page. It's just a book."/>
+<PURGATORIO Name="PURGATORIO", RoomID="8", Id="1" Examine="You flip through the pages. Hidden inside you find a MATCHBOX!" PostExamine="You flip through the pages. It's just a book."/>
 <PARADISUM Name="PARADISUM", RoomID="8", Id="2" Examine="You flip through the pages. It's just a book."/>
 <GOULAINE Name="GOULAINE", RoomID="11", Id="3" Examine="It's a bottle of wine with the label 'Chateau de Goulaine'"/>
 <RICASOLI Name="RICASOLI", RoomID="11", Id="4" Examine="It's a bottle of wine with the label 'Ricasoli'"/>
