@@ -40,4 +40,4 @@
 <JUDITH Name="JUDITH", RoomID="7", Id="130", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'Judith Beheading Holofernes'"/>
 <DAVID Name="DAVID", RoomID="7", Id="131", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'David with the Head of Goliath'"/>
 <SALOME Name="SALOME", RoomID="7", Id="132", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'Salome with the Head of John the Baptist'"/>
-<DOOR Name="DOOR", RoomID="6", Id="133", ItemLocked="TRUE" Examine="The five keyholes are blue, green, red, yellow and purple. Try and open the door? ('OPEN DOOR')"/>
+<DOOR Name="DOOR", RoomID="15", Id="133", ItemLocked="TRUE" Examine="The five keyholes are blue, green, red, yellow and purple. Try and open the door? ('OPEN DOOR')"/>

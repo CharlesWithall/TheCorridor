@@ -73,18 +73,42 @@
 		<WEST Dialogue = "There is a peculiar arrangement of CANDELABRA on the wall"/>
 	</LOOK>
 </CORRIDOR_SIX>
-<CORRIDOR_SEVEN Id="6", Name="Corridor Seven" South="5" East="14">
+<CORRIDOR_SEVEN Id="6", Name="Corridor Seven" North="15" South="5" East="14">
 	<GO>
+		<NORTH Dialogue = "You step further down the Corridor"/>
 		<SOUTH Dialogue = "You step back down the Corridor"/>
 		<EAST Dialogue = "You step into the Courtyard"/>
 	</GO>
 	<LOOK>
 		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
 		<EAST Dialogue = "There is a door leading outside"/>
-		<NORTH Dialogue = "You can see a giant stone DOOR with five keyholes"/>
+		<NORTH Dialogue = "You can see down the corridor into the darkness"/>
 		<WEST Dialogue = "There is just a stone wall here"/>
 	</LOOK>
 </CORRIDOR_SEVEN>
+<CORRIDOR_EIGHT Id="15", Name="Corridor Eight" South="6" West="16">
+	<GO>
+		<SOUTH Dialogue = "You step back down the Corridor"/>
+		<WEST Dialogue = "You step into the Music Room"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
+		<EAST Dialogue = "There is just a stone wall here"/>
+		<NORTH Dialogue = "You can see a giant stone DOOR with five keyholes"/>
+		<WEST Dialogue = "There is a door into a room"/>
+	</LOOK>
+</CORRIDOR_EIGHT>
+<MUSIC_ROOM Id="16", Name="Music Room" East="15">
+	<GO>
+		<EAST Dialogue = "You step back into the Corridor"/>
+	</GO>
+	<LOOK>
+		<SOUTH Dialogue = "There is a heavy looking HARPSICHORD in the corner"/>
+		<EAST Dialogue = "There is a door leading back to the Corridor"/>
+		<NORTH Dialogue = "Dusty shelves hold old song books and broken instruments"/>
+		<WEST Dialogue = "A grand PIANO sits covered by a long cloth. Someone has scratched the words SILENT NIGHT into the lid."/>
+	</LOOK>
+</MUSIC_ROOM>
 <DRAWING_ROOM Id="7", Name="Drawing Room" East="1">
 	<GO>
 		<EAST Dialogue = "You step back into the Corridor"/>
