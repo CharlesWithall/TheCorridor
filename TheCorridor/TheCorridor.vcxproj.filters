@@ -177,6 +177,9 @@
     <ClInclude Include="UseCommand.h">
       <Filter>Header Files\Input Handling</Filter>
     </ClInclude>
+    <ClInclude Include="PlayCommand.h">
+      <Filter>Header Files\Input Handling</Filter>
+    </ClInclude>
     <ClInclude Include="TxtParser.h">
       <Filter>Header Files\Services\Data Access</Filter>
     </ClInclude>
@@ -185,6 +188,9 @@
     </ClInclude>
     <ClInclude Include="ItemBuilder.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicRoomMiniGame.h">
+      <Filter>Header Files\MiniGames</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +302,9 @@
     <ClCompile Include="UseCommand.cpp">
       <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
+    <ClCompile Include="PlayCommand.cpp">
+      <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
     <ClCompile Include="PullCommand.cpp">
       <Filter>Source Files\Input Handling</Filter>
     </ClCompile>
@@ -304,6 +313,9 @@
     </ClCompile>
     <ClCompile Include="OpenCommand.cpp">
       <Filter>Source Files\Input Handling</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicRoomMiniGame.cpp">
+      <Filter>Source Files\MiniGames</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

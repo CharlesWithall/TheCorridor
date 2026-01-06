@@ -94,7 +94,7 @@
 	<LOOK>
 		<SOUTH Dialogue = "You can see down the corridor into the darkness"/>
 		<EAST Dialogue = "There is just a stone wall here"/>
-		<NORTH Dialogue = "You can see a giant stone DOOR with five keyholes"/>
+		<NORTH Dialogue = "You can see a giant stone DOOR with six keyholes"/>
 		<WEST Dialogue = "There is a door into a room"/>
 	</LOOK>
 </CORRIDOR_EIGHT>
@@ -106,7 +106,7 @@
 		<SOUTH Dialogue = "There is a heavy looking HARPSICHORD in the corner"/>
 		<EAST Dialogue = "There is a door leading back to the Corridor"/>
 		<NORTH Dialogue = "Dusty shelves hold old song books and broken instruments"/>
-		<WEST Dialogue = "A grand PIANO sits covered by a long cloth. Someone has scratched the words SILENT NIGHT into the lid."/>
+		<WEST Dialogue = "A grand PIANO sits covered by a long cloth. Someone has scratched the words SILENT NIGHT into the lid. You could try to PLAY it."/>
 	</LOOK>
 </MUSIC_ROOM>
 <DRAWING_ROOM Id="7", Name="Drawing Room" East="1">

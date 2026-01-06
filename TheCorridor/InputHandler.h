@@ -9,6 +9,7 @@
 #include "LookCommand.h"
 #include "OpenCommand.h"
 #include "PullCommand.h"
+#include "PlayCommand.h"
 #include "RotateCommand.h"
 #include "TakeCommand.h"
 #include "UseCommand.h"
@@ -30,4 +31,3 @@ private:
 	bool ConvertStringToLeftRight(const std::string& anInputString, LeftRight& aDirection);
 	bool CompareStringOrFirstLetter(const std::string& aUserString, const std::string& aGameString);
 };
-
