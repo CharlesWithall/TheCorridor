@@ -19,6 +19,7 @@ In 'The Corridor', words in bold indicate an item you can take or examine
 "There is a FIREPLACE in front of you" indicates that you can interact with FIREPLACE
 It doesn't matter if you type in upper or lower case
 Along the way you might encounter 'special' commands such as (I)GNITE, (M)OVE, (U)SE etc.
+In the music room you can (P)LAY notes on the piano.
 You can view your INVENTORY by typing INVENTORY
 You can always EXAMINE the items in your INVENTORY
 You can see the room you are currently in in the window header above

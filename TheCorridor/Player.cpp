@@ -37,7 +37,7 @@ void Player::RegisterListeners()
 int Player::GetNumberOfKeysAcquired() const
 {
 	int numberOfKeys = 0;
-	ItemID keys[TOTAL_NUMBER_OF_KEYS] = { BLUE_KEY, GREEN_KEY, PURPLE_KEY, RED_KEY, YELLOW_KEY };
+	ItemID keys[TOTAL_NUMBER_OF_KEYS] = { BLUE_KEY, GREEN_KEY, PURPLE_KEY, RED_KEY, YELLOW_KEY, IVORY_KEY };
 
 	for (int i = 0; i < TOTAL_NUMBER_OF_KEYS; ++i)
 	{

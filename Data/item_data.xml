@@ -22,6 +22,7 @@
 <POKER Name="POKER", RoomID="7", Id="15" Examine="It's a poker with the word 'Goulaine' engraved on it"/>
 <STAFF Name="STAFF", RoomID="9", Id="16"/>
 <BLACK_KEY Name="BLACK KEY", RoomID="10", Id="17" Examine="It's just a pile of dust"/> // fake key!
+<IVORY_KEY Name="IVORY KEY", RoomID="16", Id="18", ItemLocked="TRUE" Examine="It's a pale ivory key that glints softly in the light"/> // music room reward
 
 <!--Static Items-->
 <FIREPLACE Name="FIREPLACE", RoomID="7", Id="117", ItemLocked="TRUE" Examine="Behind the flames you see a BLUE KEY, but the fire is too hot to reach it. Sitting on the stone hearth is a stand with POKERs and some BUCKETs. If you filled a BUCKET with water you could (U)SE it on the FIREPLACE ('USE BUCKET')" PostExamine="You have put the fire out that was obscuring the BLUE KEY. Sitting on the stone hearth is a stand with POKERs and some BUCKETs."/>
@@ -40,4 +41,5 @@
 <JUDITH Name="JUDITH", RoomID="7", Id="130", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'Judith Beheading Holofernes'"/>
 <DAVID Name="DAVID", RoomID="7", Id="131", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'David with the Head of Goliath'"/>
 <SALOME Name="SALOME", RoomID="7", Id="132", ItemLocked="TRUE" Examine="This painting is Caravaggio's 'Salome with the Head of John the Baptist'"/>
-<DOOR Name="DOOR", RoomID="15", Id="133", ItemLocked="TRUE" Examine="The five keyholes are blue, green, red, yellow and purple. Try and open the door? ('OPEN DOOR')"/>
+<DOOR Name="DOOR", RoomID="15", Id="133", ItemLocked="TRUE" Examine="The six keyholes are blue, green, red, yellow, purple and ivory. Try and open the door? ('OPEN DOOR')"/>
+<PIANO Name="PIANO", RoomID="16", Id="134" Examine="You pull back the cloth to reveal a row of ivory keys labelled A - G. The words SILENT NIGHT are scratched into the lid. Perhaps playing the opening notes (G A G E C D) will soothe the instrument."/>
