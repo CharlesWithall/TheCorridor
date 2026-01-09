@@ -9,13 +9,10 @@
 #include "InputHandler.h"
 #include "Player.h"
 #include "Room.h"
-#include "UNIT_TEST_XmlParser.h"
-#include "UNIT_TEST_DataRepository.h"
 #include "World.h"
 #include "XMLParser2.h"
 
 void EndGame();
-void RunUnitTests();
 void SetConsoleWindowSize();
 void WriteTitleArt();
 void WriteTutorial();
@@ -76,22 +73,6 @@ void EndGame()
 	_getch();
 	ServiceLocator::GetConsoleWriter().WriteStringToConsole("Press any key to exit...");
 	_getch();
-}
-
-void RunUnitTests()
-{
-	std::vector<UNIT_TEST*> unitTests;
-
-	UNIT_TEST_XmlParser* xmlParserUnitTest = new UNIT_TEST_XmlParser();
-	UNIT_TEST_DataRepository* dataRepositoryUnitTest = new UNIT_TEST_DataRepository();
-
-	unitTests.push_back(xmlParserUnitTest);
-	unitTests.push_back(dataRepositoryUnitTest);
-
-	for (UNIT_TEST* unitTest : unitTests)
-	{
-		unitTest->RunTest();
-	}
 }
 
 void SetConsoleWindowSize()

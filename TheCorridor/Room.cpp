@@ -12,7 +12,7 @@ void Room::Enter()
 {
 	std::wstring formattedRoomName(myRoomName.length(), L' ');
 	std::copy(myRoomName.begin(), myRoomName.end(), formattedRoomName.begin());
-	SetConsoleTitle(formattedRoomName.c_str());
+	//SetConsoleTitle(formattedRoomName.c_str());
 }
 
 void Room::Exit(const Direction& aDirection)

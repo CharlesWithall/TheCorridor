@@ -28,6 +28,16 @@ ipch/
 *.tlog
 *.cachefile
 
+# CMake build outputs
+[Bb]uild/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+*.cmake
+
 # Compiled binaries and libraries
 *.exe
 *.dll
