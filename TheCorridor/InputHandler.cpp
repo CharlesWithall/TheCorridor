@@ -116,6 +116,14 @@ Command* InputHandler::HandleInput(const Player* aPlayer, const std::string& aUs
 			}
 
 			return new OpenCommand();
+		case PLAY:
+			if (lastWord.length() != 1 || toupper(lastWord[0]) < 'A' || toupper(lastWord[0]) > 'G')
+			{
+				ServiceLocator::GetConsoleWriter().WriteStringToConsole(INVALID_NOTE_STRING);
+				return nullptr;
+			}
+
+			return new PlayCommand(toupper(lastWord[0]));
 		default:
 			ServiceLocator::GetConsoleWriter().ReportError(ERROR_INVALID_ACTION_COMMAND);
 			return nullptr;
@@ -188,6 +196,12 @@ bool InputHandler::ConvertStringToAction(const std::string& anInputString, Actio
 	if (CompareStringOrFirstLetter(anInputString, "OPEN") && aPlayer->GetCurrentRoom()->GetID() == CORRIDOR_SEVEN)
 	{
 		anAction = Action::OPEN;
+		return true;
+	}
+
+	if (CompareStringOrFirstLetter(anInputString, "PLAY") && aPlayer->GetCurrentRoom()->GetID() == aPlayer->GetMiniGameComponent()->GetMusicRoomMiniGame()->GetLocation())
+	{
+		anAction = Action::PLAY;
 		return true;
 	}
 

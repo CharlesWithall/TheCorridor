@@ -35,6 +35,9 @@ void AchievementComponent::OnNotify(const Event* const anEvent)
 		case MG_WATERPIPES:
 			achievementString += "POSEIDON";
 			break;
+		case MG_MUSIC_ROOM:
+			achievementString += "CAROLER";
+			break;
 		}
 	}
 	else if (const ItemAcquiredEvent* const itemAcquired = dynamic_cast<const ItemAcquiredEvent* const>(anEvent))

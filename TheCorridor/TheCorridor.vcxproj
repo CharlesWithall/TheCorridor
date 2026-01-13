@@ -101,9 +101,11 @@
     <ClInclude Include="MiniGame.h" />
     <ClInclude Include="MiniGameCompleteEvent.h" />
     <ClInclude Include="MiniGameComponent.h" />
+    <ClInclude Include="MusicRoomMiniGame.h" />
     <ClInclude Include="MoveCommand.h" />
     <ClInclude Include="Notifier.h" />
     <ClInclude Include="OpenCommand.h" />
+    <ClInclude Include="PlayCommand.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PullCommand.h" />
     <ClInclude Include="Room.h" />
@@ -143,9 +145,11 @@
     <ClCompile Include="MiniGame.cpp" />
     <ClCompile Include="MiniGameCompleteEvent.cpp" />
     <ClCompile Include="MiniGameComponent.cpp" />
+    <ClCompile Include="MusicRoomMiniGame.cpp" />
     <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="Notifier.cpp" />
     <ClCompile Include="OpenCommand.cpp" />
+    <ClCompile Include="PlayCommand.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PullCommand.cpp" />
     <ClCompile Include="Room.cpp" />
